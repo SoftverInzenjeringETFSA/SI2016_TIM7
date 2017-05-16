@@ -162,6 +162,7 @@ DROP TABLE IF EXISTS `arhiv`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `arhiv` (
+  `ID` int(10) NOT NULL AUTO_INCREMENT,
   `Ukupan broj` int(10) NOT NULL,
   `Broj iznajmljenih` int(10) NOT NULL,
   `idLiterature` int(10) NOT NULL,
@@ -218,6 +219,7 @@ DROP TABLE IF EXISTS `iznajmljeno`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `iznajmljeno` (
+  `ID` int(10) NOT NULL AUTO_INCREMENT,
   `Naziv literature` varchar(50) NOT NULL,
   `Datum povratka` date NOT NULL,
   `Datum iznajmljivanja` date NOT NULL,

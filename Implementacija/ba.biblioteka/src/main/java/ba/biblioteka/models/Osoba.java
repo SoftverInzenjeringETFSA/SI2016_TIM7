@@ -29,14 +29,6 @@ public class Osoba implements Serializable {
     	
     }
     
-    public Integer getId() {
-		return this.idOsobe;
-	}
-	public void setId(Integer id) {
-		this.idOsobe = id;
-	}
-	
-	
 	public String getKorisnickoIme() {
 		return this.KorisnickoIme;
 	}
