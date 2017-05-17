@@ -367,17 +367,43 @@ label:hover:before {
   margin-top: 20px!important;
 }
 
-#footer {
+
+#footer #logo{
+
+  height: 40px;
+  width: auto;
   margin-top: 10px;
-  background: #222;
-  width: 100vw!important;
-  height: 100px;
-  text-align: center;
-  padding: 30px;
+
 }
 
-#footer #logo {
-  width: 50px;
+* {
+  margin: 0;
+  padding: 0;
+} 
 
-  height: auto;
+html, body {
+  height: 100%;
+}
+
+.wrap {
+  min-height: 100%;
+}
+
+.main {
+  overflow: auto;
+  padding-bottom: 120px; 
+
+}
+
+#footer {
+  position: relative;
+  margin-top: -120px; 
+  height: 120px;
+  clear: both;
+  text-align: center;
+  background: #222;
+} 
+
+#footer h4, p{
+  color: #808080;
 }
