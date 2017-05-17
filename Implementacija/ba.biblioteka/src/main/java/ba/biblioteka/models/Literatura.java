@@ -7,11 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
 @Entity
-@Table(name="moderator")
+@Table(name="literatura")
 
 
 public class Literatura implements Serializable {
@@ -31,7 +34,13 @@ public class Literatura implements Serializable {
     private String MogucnostPreuzimanja;
     private Date DatumUnosa;
     
-    private String Kategorija;
+    private Arhiv arhiv;
+    
+    
+    @ManyToOne(targetEntity=Kategorija.class)
+    @JoinColumn(name="Kategorija")
+    private Kategorija kategorija;
+
 
     public Literatura() {
     	
@@ -101,13 +110,23 @@ public class Literatura implements Serializable {
 		DatumUnosa = datumUnosa;
 	}
 
-	public String getKategorija() {
-		return Kategorija;
-	}
-
-	public void setKategorija(String kategorija) {
-		Kategorija = kategorija;
+	
+	 public Kategorija getKategorija(){
+	    	return kategorija;
+	 }
+	    
+	public void setFakultet(Kategorija kategorija) {
+			this.kategorija = kategorija;
 	}
     
+	
+	 @OneToOne(mappedBy = "literatura")
+	    public Arhiv getArhiv() {
+	        return arhiv;
+	    }
+
+	    public void setArhiv(Arhiv arhiv) {
+	        this.arhiv = arhiv;
+	    }
 
 }

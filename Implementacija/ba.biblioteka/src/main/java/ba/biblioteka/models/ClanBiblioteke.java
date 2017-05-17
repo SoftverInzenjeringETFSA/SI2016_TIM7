@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -26,7 +28,19 @@ public class ClanBiblioteke implements Serializable {
     private BigDecimal BrojTelefona;
     private String Ustanova;
     private String Email;
-    private String idOsobe;
+    
+    
+    @ManyToOne(targetEntity=Osoba.class)
+    @JoinColumn(name="idOsobe")
+    private Osoba osoba;
+    
+    public Osoba getOsoba(){
+    	return osoba;
+    }
+    
+	public void setOsoba(Osoba osoba) {
+		this.osoba = osoba;
+	}
     
     
 	public Date getDatumRodjenja() {
@@ -64,11 +78,5 @@ public class ClanBiblioteke implements Serializable {
 	}
 	public void setEmail(String email) {
 		Email = email;
-	}
-	public String getIdOsobe() {
-		return idOsobe;
-	}
-	public void setIdOsobe(String idOsobe) {
-		this.idOsobe = idOsobe;
 	}
 }

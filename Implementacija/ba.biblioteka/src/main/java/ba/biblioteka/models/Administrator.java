@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -20,9 +22,19 @@ public class Administrator implements Serializable {
     private Integer idAdministratora; 
     
     private Integer SigurnosniID;
-    private String idOsobe;
-
-   
+    
+    @ManyToOne(targetEntity=Osoba.class)
+    @JoinColumn(name="idOsobe")
+    private Osoba osoba;
+    
+    public Osoba getOsoba(){
+    	return osoba;
+    }
+    
+	public void setOsoba(Osoba osoba) {
+		this.osoba = osoba;
+	}
+    
     
     public Administrator() {
     	

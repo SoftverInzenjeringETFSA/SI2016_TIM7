@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -24,10 +26,39 @@ public class Iznajmljeno implements Serializable {
 	private Date DatumPovratka;
 	private Date DatumIznajmljivanja;
 	private String AutorLiterature;
-	private Integer BrojClanskeKarte;
-	private Integer idLiterature;
 	private String IznajmioModerator;
 	private String IznajmioAdministrator;
+	
+	
+	
+	 @ManyToOne(targetEntity=ClanBiblioteke.class)
+	    @JoinColumn(name="Broj clanske karte")
+	    private ClanBiblioteke clan;
+	    
+	    public ClanBiblioteke getClanBiblioteke(){
+	    	return clan;
+	    }
+	    
+		public void setClanBiblioteke(ClanBiblioteke clan) {
+			this.clan = clan;
+		}
+		
+		
+
+	 @ManyToOne(targetEntity=Literatura.class)
+		@JoinColumn(name="idLiterature")
+		private Literatura literatura;
+		    
+		public Literatura getLiteratura(){
+		    return literatura;
+		}
+		    
+		public void setLiteratura(Literatura literatura) {
+			this.literatura = literatura;
+		}	
+	
+	
+	
 	public String getNazivLiterature() {
 		return NazivLiterature;
 	}
@@ -52,18 +83,8 @@ public class Iznajmljeno implements Serializable {
 	public void setAutorLiterature(String autorLiterature) {
 		AutorLiterature = autorLiterature;
 	}
-	public Integer getBrojClanskeKarte() {
-		return BrojClanskeKarte;
-	}
-	public void setBrojClanskeKarte(Integer brojClanskeKarte) {
-		BrojClanskeKarte = brojClanskeKarte;
-	}
-	public Integer getIdLiterature() {
-		return idLiterature;
-	}
-	public void setIdLiterature(Integer idLiterature) {
-		this.idLiterature = idLiterature;
-	}
+	
+	
 	public String getIznajmioModerator() {
 		return IznajmioModerator;
 	}
