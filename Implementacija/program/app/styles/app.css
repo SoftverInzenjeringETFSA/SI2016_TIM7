@@ -10,7 +10,7 @@
   margin: 5px 0;
 }
 
-.theme-showcase .navbar .container {
+.theme-showcase .navbar-main .container {
   width: auto;
 }
 .btn-default {
@@ -19,14 +19,14 @@
   border-color: #ccc;
   margin-right: 3%;
 }
-.navbar-nav > li > a {
+.navbar-main-nav > li > a {
   padding-top: 10px;
   padding-bottom: 10px;
   line-height: 20px;
   font-size: 20px;
 }
 
-.navbar {
+.navbar-main {
   width: 100vw!important;
 }
 
@@ -81,7 +81,6 @@ h3 a:hover{
 body {
   background: #efefef;
   padding-top: 0px;
-  padding-bottom: 30px;
   overflow-x: hidden!important;
   
 }
@@ -381,34 +380,57 @@ label:hover:before {
   margin-top: 10px;
 
 }
-
-* {
-  margin: 0;
+body {
   padding: 0;
-} 
-
-html, body {
-  overflow-x: hidden!important;
+  margin: 0;
 }
 
-.wrap {
-  min-height: 100%;
-}
-
-.main {
-  padding-bottom: 120px; 
-
-}
-
-#footer {
+#footer{
   position: relative;
   margin-top: -120px; 
   height: 120px;
   clear: both;
   text-align: center;
   background: #222;
+  width: 100%;
 } 
 
 #footer h4, p{
   color: #808080;
+}
+
+
+#bg {
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+}
+#bg img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+  opacity: 0.77;
+}
+
+#prijavise{
+position: absolute;
+  width: 350px;
+  height: 200px;
+  z-index: 15;
+  top: 50%;
+  left: 50%;
+  margin: -100px 0 0 -150px;
+  background: #111;
+
+}
+
+#pitanja{
+  padding-bottom: 120px;
 }

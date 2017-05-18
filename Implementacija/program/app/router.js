@@ -13,7 +13,8 @@ Router.map(function() {
   this.route('profil');
   this.route('faq');
   this.route('login');
-  this.route('register')
+  this.route('register');
+   this.route('home');
   this.route('iznajmljivanje');
 
   this.route('administracija', function() {
