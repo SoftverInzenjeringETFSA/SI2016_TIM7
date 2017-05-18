@@ -17,14 +17,12 @@ import javax.persistence.Table;
 public class Iznajmljeno implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	 @Id
-	 @GeneratedValue(strategy=GenerationType.AUTO)
-	 private Integer id; 
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Integer id; 
 	 
-	private String naziv_literature;
 	private Date datum_povratka;
 	private Date datum_iznajmljivanja;
-	private String autor_literature;
 	
 	@ManyToOne(targetEntity=ClanBiblioteke.class)
 	@JoinColumn(name="unajmio_clan")
@@ -46,14 +44,6 @@ public class Iznajmljeno implements Serializable {
 		
 	}
 
-	public String getNaziv_literature() {
-		return naziv_literature;
-	}
-
-	public void setNaziv_literature(String naziv_literature) {
-		this.naziv_literature = naziv_literature;
-	}
-
 	public Date getDatum_povratka() {
 		return datum_povratka;
 	}
@@ -68,14 +58,6 @@ public class Iznajmljeno implements Serializable {
 
 	public void setDatum_iznajmljivanja(Date datum_iznajmljivanja) {
 		this.datum_iznajmljivanja = datum_iznajmljivanja;
-	}
-
-	public String getAutor_literature() {
-		return autor_literature;
-	}
-
-	public void setAutor_literature(String autor_literature) {
-		this.autor_literature = autor_literature;
 	}
 
 	public ClanBiblioteke getUnajmio_clan() {
