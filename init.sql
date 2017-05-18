@@ -30,11 +30,6 @@ CREATE TABLE `osoba` (
 -- Dumping data for table `osoba`
 --
 
-LOCK TABLES `osoba` WRITE;
-/*!40000 ALTER TABLE `osoba` DISABLE KEYS */;
-/*!40000 ALTER TABLE `osoba` ENABLE KEYS */;
-UNLOCK TABLES;
-
 
 --
 -- Table structure for table `administrator`
@@ -56,12 +51,6 @@ CREATE TABLE `administrator` (
 --
 -- Dumping data for table `administrator`
 --
-
-LOCK TABLES `administrator` WRITE;
-/*!40000 ALTER TABLE `administrator` DISABLE KEYS */;
-/*!40000 ALTER TABLE `administrator` ENABLE KEYS */;
-UNLOCK TABLES;
-
 
 
 
@@ -89,10 +78,6 @@ CREATE TABLE `moderator` (
 -- Dumping data for table `moderator`
 --
 
-LOCK TABLES `moderator` WRITE;
-/*!40000 ALTER TABLE `moderator` DISABLE KEYS */;
-/*!40000 ALTER TABLE `moderator` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 --
@@ -115,10 +100,7 @@ CREATE TABLE `kategorija` (
 -- Dumping data for table `kategorija`
 --
 
-LOCK TABLES `kategorija` WRITE;
-/*!40000 ALTER TABLE `kategorija` DISABLE KEYS */;
-/*!40000 ALTER TABLE `kategorija` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Table structure for table `literatura`
@@ -148,10 +130,6 @@ CREATE TABLE `literatura` (
 -- Dumping data for table `literatura`
 --
 
-LOCK TABLES `literatura` WRITE;
-/*!40000 ALTER TABLE `literatura` DISABLE KEYS */;
-/*!40000 ALTER TABLE `literatura` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 --
@@ -176,10 +154,6 @@ CREATE TABLE `arhiv` (
 -- Dumping data for table `arhiv`
 --
 
-LOCK TABLES `arhiv` WRITE;
-/*!40000 ALTER TABLE `arhiv` DISABLE KEYS */;
-/*!40000 ALTER TABLE `arhiv` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `clanbiblioteke`
@@ -208,10 +182,7 @@ CREATE TABLE `clanbiblioteke` (
 -- Dumping data for table `clanbiblioteke`
 --
 
-LOCK TABLES `clanbiblioteke` WRITE;
-/*!40000 ALTER TABLE `clanbiblioteke` DISABLE KEYS */;
-/*!40000 ALTER TABLE `clanbiblioteke` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Table structure for table `iznajmljeno`
@@ -246,10 +217,4 @@ CREATE TABLE `iznajmljeno` (
 -- Dumping data for table `iznajmljeno`
 --
 
-LOCK TABLES `iznajmljeno` WRITE;
-/*!40000 ALTER TABLE `iznajmljeno` DISABLE KEYS */;
-/*!40000 ALTER TABLE `iznajmljeno` ENABLE KEYS */;
-UNLOCK TABLES;
 
-
--- Dump completed on 2017-05-11 17:46:44
