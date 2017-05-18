@@ -22,7 +22,7 @@ public class Literatura implements Serializable {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id; 
     
-    private Integer autor_literature;
+    private String autor_literature;
     private String naziv_literature;
     private String izdavac;
     private Date godina_izdavanja;
@@ -39,11 +39,19 @@ public class Literatura implements Serializable {
     	
     }
 
-	public Integer getAutor_literature() {
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getAutor_literature() {
 		return autor_literature;
 	}
 
-	public void setAutor_literature(Integer autor_literature) {
+	public void setAutor_literature(String autor_literature) {
 		this.autor_literature = autor_literature;
 	}
 

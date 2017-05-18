@@ -1,0 +1,22 @@
+<ul>
+  {{#each model as |clan|}}
+    <li>
+    	<ul>
+
+    		<li>{{clan.id}}</li>
+    		<li>{{clan.osoba.ime}}</li>
+    		<li>{{clan.osoba.prezime}}</li>
+
+    		<li>{{clan.broj_clanske_karte}}</li>
+    		<li>{{clan.datum_rodjenja}}</li>
+    		<li>{{clan.adresa}}</li>
+    		<li>{{clan.mjesto_stanovanja}}</li>
+    		<li>{{clan.mjesto_stanovanja}}</li>
+    		<li>{{clan.broj_telefona}}</li>
+    		<li>{{clan.ustanova}}</li>
+    		<li>{{clan.email}}</li>
+
+    	</ul>
+    </li>
+  {{/each}}
+</ul>

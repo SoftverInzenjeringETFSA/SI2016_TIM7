@@ -17,7 +17,7 @@ public class Kategorija implements Serializable {
 	
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private String id;
+    private Integer id;
     
     private String naziv_kategorije;
     private String potkategorija;
@@ -26,6 +26,14 @@ public class Kategorija implements Serializable {
     public Kategorija() {
     	
     }
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getNaziv_kategorije() {
 		return naziv_kategorije;

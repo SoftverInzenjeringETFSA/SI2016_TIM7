@@ -17,9 +17,7 @@ Router.map(function() {
   this.route('iznajmljivanje');
 
   this.route('administracija', function() {
-    this.route('clan', function() {
-      this.route('show', { path: '/show/:id' });
-    });
+    this.route('clanovi');
   });
 });
 

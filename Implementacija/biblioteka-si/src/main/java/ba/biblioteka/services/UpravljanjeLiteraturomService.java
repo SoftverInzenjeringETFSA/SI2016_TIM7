@@ -22,7 +22,7 @@ public class UpravljanjeLiteraturomService {
 		return this.kategorijaRepository.findAll();
 	}
 	
-	public List<Literatura> findAllLiteratureForCategory(Integer id){
+	public List<Literatura> findAllLiteratureByCategory(Integer id){
 		return literaturaRepository.findAllLiteratureForCategory(id);
 	}
 }

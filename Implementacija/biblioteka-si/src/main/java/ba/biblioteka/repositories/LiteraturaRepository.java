@@ -13,6 +13,6 @@ public interface LiteraturaRepository extends Repository<Literatura, Integer> {
 	boolean exists(Integer primaryKey);
 	public List<Literatura> findAll();	
 	
-	@Query("select l from Literatura l where kategorija = :id")
+	@Query("select l from Literatura l where l.kategorija.id = :id")
 	public List<Literatura> findAllLiteratureForCategory(@Param("id") Integer id);
 }

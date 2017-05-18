@@ -44,6 +44,14 @@ public class Iznajmljeno implements Serializable {
 		
 	}
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public Date getDatum_povratka() {
 		return datum_povratka;
 	}

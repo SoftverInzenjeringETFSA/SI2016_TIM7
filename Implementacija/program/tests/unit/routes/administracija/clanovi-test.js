@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('route:administracija/clan/show', 'Unit | Route | administracija/clan/show', {
+moduleFor('route:administracija/clanovi', 'Unit | Route | administracija/clanovi', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });

@@ -34,6 +34,14 @@ public class Moderator implements Serializable {
     	
     }
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public Integer getSigurnosni_id() {
 		return sigurnosni_id;
 	}
