@@ -3,9 +3,14 @@ package ba.biblioteka.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Resource;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import ba.biblioteka.assembler.ClanResourceAssembler;
 import ba.biblioteka.models.Administrator;
 import ba.biblioteka.models.ClanBiblioteke;
 import ba.biblioteka.models.Kategorija;
@@ -40,5 +45,22 @@ public class AdministratorController {
 	@RequestMapping("/kategorije")
 	public List<Kategorija> findAllCategories(){
 		return this.literaturaService.findAllCategories();
+	}
+	
+	
+	private final ClanResourceAssembler clanResourceAssembler;
+	
+	@Autowired
+	public AdministratorController(ClanResourceAssembler customerResourceAssembler) {
+	  this.clanResourceAssembler = customerResourceAssembler;
+	}
+	
+
+	@RequestMapping(value = "/clan/{id}", method = RequestMethod.GET)
+	public ResponseEntity<Resource<ClanBiblioteke>> findAllMembers(@PathVariable("id") Integer id) {
+		ClanBiblioteke clan = this.administracijaService.findById(id);
+		
+		  Resource<ClanBiblioteke> resource = clanResourceAssembler.toResource(clan);
+		  return ResponseEntity.ok(resource);
 	}
 }

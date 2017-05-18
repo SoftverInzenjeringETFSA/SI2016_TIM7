@@ -34,4 +34,8 @@ public class AdministracijaService {
 	public List<ClanBiblioteke> findAllMembers() {
 		return this.clanRepository.findAll();
 	}
+	
+	public ClanBiblioteke findById(Integer id){
+		return this.clanRepository.findOne(id);
+	}
 }

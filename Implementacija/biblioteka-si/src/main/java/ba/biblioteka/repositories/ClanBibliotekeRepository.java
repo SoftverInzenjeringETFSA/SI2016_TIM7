@@ -14,5 +14,6 @@ import ba.biblioteka.models.Moderator;
 public interface ClanBibliotekeRepository extends Repository<ClanBiblioteke, Integer> {
 	long count();
 	boolean exists(Integer primaryKey);
-	public List<ClanBiblioteke> findAll();	
+	public List<ClanBiblioteke> findAll();
+	ClanBiblioteke findOne(Integer id);
 }

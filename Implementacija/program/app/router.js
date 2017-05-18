@@ -15,6 +15,12 @@ Router.map(function() {
   this.route('login');
   this.route('register')
   this.route('iznajmljivanje');
+
+  this.route('administracija', function() {
+    this.route('clan', function() {
+      this.route('show', { path: '/show/:id' });
+    });
+  });
 });
 
 export default Router;

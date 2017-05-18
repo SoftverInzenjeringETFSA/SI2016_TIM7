@@ -12,7 +12,6 @@
     	<version>1.5.3.RELEASE</version>
     </parent>
 	
-	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -50,7 +49,31 @@
 		  <groupId>org.hibernate</groupId>
 		  <artifactId>hibernate-jpamodelgen</artifactId>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.springframework.hateoas/spring-hateoas -->
+		<dependency>
+		    <groupId>org.springframework.hateoas</groupId>
+		    <artifactId>spring-hateoas</artifactId>
+		</dependency>
+		
+		<dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zuul</artifactId>
+        </dependency>
+        
 	</dependencies>
+  	
+  	<dependencyManagement>
+	  <dependencies>
+	    <dependency>
+	      <groupId>org.springframework.cloud</groupId>
+	      <artifactId>spring-cloud-dependencies</artifactId>
+	      <version>Brixton.SR5</version>
+	      <type>pom</type>
+	      <scope>import</scope>
+	    </dependency>
+	  </dependencies>
+	</dependencyManagement>
   	
   	<build>
         <plugins>
