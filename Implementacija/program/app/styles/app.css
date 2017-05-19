@@ -81,7 +81,7 @@ h3 a:hover{
 
 
 body {
-  background: #fff;
+  background: #fff!important;
   padding-top: 0px;
   overflow-x: hidden!important;
   width: 100vw!important;
@@ -139,6 +139,9 @@ body {
   margin-top: 20px!important;
 }
 
+.front-page .second .buttons {
+  text-align: center;
+}
 
 #footer #logo{
 

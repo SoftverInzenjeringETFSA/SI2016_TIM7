@@ -28,6 +28,9 @@ Router.map(function() {
 
   this.route('clan', function() {
     this.route('literatura');
+    this.route('pocetna');
+    this.route('faq');
+    this.route('odjava');
   });
 });
 
