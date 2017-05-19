@@ -5,32 +5,22 @@
 
 <div id="formaBG">
   <div class="module">
-
   <div style="text-align: center">
  <img src="http://i.imgur.com/Fk1Urva.png" alt="" class="icon"/>
 
-    </div>
-
+    </div>  
     <form id="osobaunos" method="POST" action="">
       <input type="text" placeholder="Ime" class="textbox" />
       <input type="text" placeholder="Prezime" class="textbox" />
       <input type="text" placeholder="Korisnicko Ime" class="textbox" />
       <input type="password" placeholder="Sifra" class="textbox" />
 
-      <input type="button" value="Next" id="next-step-button" class="button">
+      <input type="button" value="Next" id="next-step-admin" class="button">
     </form>
 
+ <form id="adminunos" method="POST" action="" style="display: none">
 
-    <form id="clanunos" method="POST" action="" style="display: none">
-      <input type="text" placeholder="Broj clanske karte" class="textbox" />
-      <input type="date" placeholder="Datum rodjenja" class="textbox" />
-      <input type="text" placeholder="Adresa" class="textbox" />
-      <input type="text" placeholder="Mjesto stanovanja" class="textbox" />
-     <input type="text" placeholder="Broj telefona" class="textbox" />
-     <input type="text" placeholder="Ustanova" class="textbox" />
-     <input type="email" placeholder="E-Mail" class="textbox" />
-
-
+ <input type="text" placeholder="Sigurnosni ID" class="textbox" />
       <input type="button" value="Submit" class="button" />
     </form>
 
@@ -40,9 +30,9 @@
 
 <script>
  $(document).ready(function () {
-   $('#next-step-button').click(function () {
+   $('#next-step-admin').click(function () {
      $('#osobaunos').hide();
-     $('#clanunos').show();
+     $('#adminunos').show();
    });
  });
 
