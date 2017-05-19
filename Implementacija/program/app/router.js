@@ -19,6 +19,7 @@ Router.map(function() {
 
   this.route('administracija', function() {
     this.route('clanovi');
+    this.route('moderatori');
   });
 });
 

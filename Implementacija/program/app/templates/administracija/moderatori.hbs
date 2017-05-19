@@ -1,0 +1,19 @@
+<ul>
+  {{#each model as |moderator|}}
+    <li>
+        <ul>
+
+            <li>{{moderator.id}}</li>
+            <li>{{moderator.osoba.ime}}</li>
+            <li>{{moderator.osoba.prezime}}</li>
+            <li>{{moderator.osoba.korisnicko_ime}}</li>
+
+            <li>{{moderator.sigurnosni_id}}</li>
+            <li>{{moderator.adresa}}</li>
+            <li>{{moderator.grad}}</li>
+            <li>{{moderator.email}}</li>
+
+        </ul>
+    </li>
+  {{/each}}
+</ul>
