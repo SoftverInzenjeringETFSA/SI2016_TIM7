@@ -14,20 +14,11 @@ Router.map(function() {
   this.route('faq');
   this.route('login');
   this.route('registermember');
-  this.route('home');
-  this.route('homekorisnik');
-
-
+   this.route('home');
   this.route('iznajmljivanje');
-  this.route('addmoderator');
-  this.route('addadministrator');
+
   this.route('administracija', function() {
     this.route('clanovi');
-    this.route('moderatori');
-  });
-
-  this.route('clan', function() {
-    this.route('literatura');
   });
 });
 

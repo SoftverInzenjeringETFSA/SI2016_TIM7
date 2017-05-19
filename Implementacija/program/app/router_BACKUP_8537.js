@@ -14,9 +14,13 @@ Router.map(function() {
   this.route('faq');
   this.route('login');
   this.route('registermember');
+<<<<<<< HEAD
   this.route('home');
-  this.route('homekorisnik');
-
+  this.route('iznajmljivanje');
+=======
+   this.route('home');
+      this.route('homekorisnik');
+>>>>>>> 13bfc97448ba04f3f10d48ebc36b3bfc4ec0b8e0
 
   this.route('iznajmljivanje');
   this.route('addmoderator');

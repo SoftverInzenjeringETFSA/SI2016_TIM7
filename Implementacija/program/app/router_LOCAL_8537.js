@@ -15,12 +15,8 @@ Router.map(function() {
   this.route('login');
   this.route('registermember');
   this.route('home');
-  this.route('homekorisnik');
-
-
   this.route('iznajmljivanje');
-  this.route('addmoderator');
-  this.route('addadministrator');
+
   this.route('administracija', function() {
     this.route('clanovi');
     this.route('moderatori');
