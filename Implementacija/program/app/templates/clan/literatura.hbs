@@ -1,0 +1,29 @@
+{{header-main}}
+{{navbar-main}}
+
+<h3 class="available-literature"> Dostupna literatura </h3>
+<div class="table-responsive">
+  <table class="table">
+  	<thead>
+      <tr>
+        <th>Naziv literature</th>
+        <th>Autor literature</th>
+        <th>Kategorija</th>
+        <th>Potkategorija</th>
+      </tr>
+    </thead>
+
+
+<tbody>
+{{#each model as |literatura|}}
+      <tr>
+        <td>{{literatura.naziv_literature}}</td>
+        <td>{{literatura.autor_literature}}</td>
+        <td>{{literatura.kategorija.naziv_kategorije}}</td>
+        <td>{{literatura.kategorija.potkategorija}}</td>
+      </tr>
+  {{/each}}
+</tbody>
+  </table>
+</div>
+

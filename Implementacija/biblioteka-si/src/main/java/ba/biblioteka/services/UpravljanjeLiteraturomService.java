@@ -25,4 +25,8 @@ public class UpravljanjeLiteraturomService {
 	public List<Literatura> findAllLiteratureByCategory(Integer id){
 		return literaturaRepository.findAllLiteratureForCategory(id);
 	}
+	
+	public List<Literatura> findAllLiterature(){
+		return literaturaRepository.findAll();
+	}
 }
