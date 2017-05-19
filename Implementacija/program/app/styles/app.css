@@ -1,4 +1,8 @@
 
+.theme-showcase {
+  width: 100vw!important;
+}
+
 .theme-dropdown .dropdown-menu {
   position: static;
   display: block;
@@ -63,11 +67,13 @@
 
 #slika {
 	width: 100vw;
-	height: 250px;
+	height: 270px;
 	position: relative;
   opacity: 0.7;
 
 }
+
+
 
 
 h3 a{
@@ -79,11 +85,14 @@ h3 a:hover{
 
 
 body {
-  background: #efefef;
+  background: #fff;
   padding-top: 0px;
   overflow-x: hidden!important;
+  width: 100vw!important;
   
 }
+
+
 /*=== 2. Anchor Link ===*/
 #link {
   color: #aaaaaa;
@@ -359,7 +368,12 @@ label:hover:before {
   padding: 7px;
 }
 
-.front-page input {
+.front-page .buttons {
+  margin-top: 30px!important;
+  margin-left: 10px;
+}
+
+.front-page .btn {
   width: 150px;
 }
 
