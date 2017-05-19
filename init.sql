@@ -28,12 +28,14 @@ USE  tim7;
 -- Table structure for table `osoba`
 --
 
+DROP TABLE IF EXISTS `osoba`;
 CREATE TABLE `osoba` (
-  `id` int(10) NOT NULL,
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `korisnicko_ime` varchar(15) NOT NULL,
   `ime` varchar(15) NOT NULL,
   `prezime` varchar(20) NOT NULL,
-  `sifra` varchar(8) NOT NULL
+  `sifra` varchar(8) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -41,19 +43,18 @@ CREATE TABLE `osoba` (
 --
 -- Table structure for table `administrator`
 --
-
+DROP TABLE IF EXISTS `administrator`;
 CREATE TABLE `administrator` (
-  `id` int(10) NOT NULL,
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `sigurnosni_id` int(10) NOT NULL,
-  `id_osobe` int(10) NOT NULL
+  `id_osobe` int(10) NOT NULL,
+   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `administrator`
 --
 
-INSERT INTO `administrator` (`id`, `sigurnosni_id`, `id_osobe`) VALUES
-(1, 225, 1);
 
 
 
@@ -62,14 +63,15 @@ INSERT INTO `administrator` (`id`, `sigurnosni_id`, `id_osobe`) VALUES
 --
 -- Table structure for table `moderator`
 --
-
+DROP TABLE IF EXISTS `moderator`;
 CREATE TABLE `moderator` (
-  `id` int(10) NOT NULL,
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `sigurnosni_id` int(10) NOT NULL,
   `adresa` varchar(20) NOT NULL,
   `grad` varchar(20) NOT NULL,
   `email` varchar(20) NOT NULL,
-  `id_osobe` int(10) NOT NULL
+  `id_osobe` int(10) NOT NULL,
+PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -79,9 +81,9 @@ CREATE TABLE `moderator` (
 --
 -- Table structure for table `clanbiblioteke`
 --
-
+DROP TABLE IF EXISTS `clanbiblioteke`;
 CREATE TABLE `clanbiblioteke` (
-  `id` int(10) NOT NULL,
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `broj_clanske_karte` varchar(10) NOT NULL,
   `datum_rodjenja` date NOT NULL,
   `adresa` varchar(20) NOT NULL,
@@ -89,27 +91,26 @@ CREATE TABLE `clanbiblioteke` (
   `broj_telefona` varchar(30) NOT NULL,
   `ustanova` varchar(15) NOT NULL,
   `email` varchar(20) NOT NULL,
-  `id_osobe` int(10) NOT NULL
+  `id_osobe` int(10) NOT NULL,
+   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `clanbiblioteke`
 --
 
-INSERT INTO `clanbiblioteke` (`id`, `broj_clanske_karte`, `datum_rodjenja`, `adresa`, `mjesto_stanovanja`, `broj_telefona`, `ustanova`, `email`, `id_osobe`) VALUES
-(1, '12345678', '1995-06-19', 'gk11', 'Sarajevo', '123-456-789', 'NA', 'email@example.com', 2);
-
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `kategorija`
 --
-
+DROP TABLE IF EXISTS `kategorija`;
 CREATE TABLE `kategorija` (
-  `id` int(25) NOT NULL,
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `naziv_kategorije` varchar(25) NOT NULL,
   `potkategorija` varchar(25) NOT NULL,
-  `opis` varchar(255) NOT NULL
+  `opis` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -124,7 +125,7 @@ INSERT INTO `kategorija` (`id`, `naziv_kategorije`, `potkategorija`, `opis`) VAL
 --
 -- Table structure for table `literatura`
 --
-
+DROP TABLE IF EXISTS `literatura`;
 CREATE TABLE `literatura` (
   `id` int(10) NOT NULL,
   `autor_literature` varchar(50) NOT NULL,
@@ -138,9 +139,9 @@ CREATE TABLE `literatura` (
   `datum_povratka` date DEFAULT NULL,
   `datum_unosa` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `kategorija` int(10) NOT NULL,
-  `unajmio_clan` int(11) DEFAULT NULL,
-  `iznajmio_moderator` int(11) DEFAULT NULL,
-  `iznajmio_administrator` int(11) DEFAULT NULL
+  `unajmio_clan` int(11) NULL,
+  `iznajmio_moderator` int(11) NULL,
+  `iznajmio_administrator` int(11) NULL 
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -160,20 +161,48 @@ INSERT INTO `literatura` (`id`, `autor_literature`, `naziv_literature`, `izdavac
 --
 ALTER TABLE `literatura`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FKLiteratura343607` (`kategorija`),
-  ADD KEY `unajmio_clan` (`unajmio_clan`),
-  ADD KEY `iznajmio_moderator` (`iznajmio_moderator`),
-  ADD KEY `iznajmio_administrator` (`iznajmio_administrator`);
-
---
--- AUTO_INCREMENT for dumped tables
---
+  ADD KEY `FKLiteraturaKategorija` (`kategorija`),
+  ADD KEY `FKClan` (`unajmio_clan`),
+  ADD KEY `FKModerator` (`iznajmio_moderator`),
+  ADD KEY `FKAdmin` (`iznajmio_administrator`);
 
 --
 -- AUTO_INCREMENT for table `literatura`
 --
 ALTER TABLE `literatura`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for table `literatura`
+--
+ALTER TABLE `literatura`
+  ADD CONSTRAINT `FKAdmin` FOREIGN KEY (`iznajmio_administrator`) REFERENCES `administrator` (`id`),
+  ADD CONSTRAINT `FKClan` FOREIGN KEY (`unajmio_clan`) REFERENCES `clanbiblioteke` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FKLiteraturaKategorija` FOREIGN KEY (`kategorija`) REFERENCES `kategorija` (`id`),
+  ADD CONSTRAINT `FKModerator` FOREIGN KEY (`iznajmio_moderator`) REFERENCES `moderator` (`id`);
+
+
+
+ALTER TABLE `administrator`
+  ADD KEY `FKAdminOsoba` (`id_osobe`);
+ALTER TABLE `administrator`
+  ADD CONSTRAINT `FKAdminOsoba` FOREIGN KEY (`id_osobe`) REFERENCES `osoba` (`id`);
+
+
+ALTER TABLE `moderator`
+  ADD KEY `FKModOsoba` (`id_osobe`);
+ALTER TABLE `moderator`
+  ADD CONSTRAINT `FKModOsoba` FOREIGN KEY (`id_osobe`) REFERENCES `osoba` (`id`);
+
+ALTER TABLE `clanbiblioteke`
+  ADD KEY `FKClanOsoba` (`id_osobe`);
+ALTER TABLE `clanbiblioteke`
+ADD CONSTRAINT `FKClanOsoba` FOREIGN KEY (`id_osobe`) REFERENCES `osoba` (`id`);
+
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
 
 
 
@@ -183,20 +212,14 @@ ALTER TABLE `literatura`
 --
 
 DROP TABLE IF EXISTS `arhiv`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `arhiv` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `ukupan_broj` int(10) NOT NULL,
   `broj_iznajmljenih` int(10) NOT NULL,
   `id_literature` int(10) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `FKArhiv824399` (`id_literature`),
-  CONSTRAINT `FKArhiv824399` FOREIGN KEY (`id_literature`) REFERENCES `literatura` (`id`)
+  KEY `FKArhivLiteratura` (`id_literature`),
+  CONSTRAINT `FKArhivLiteratura` FOREIGN KEY (`id_literature`) REFERENCES `literatura` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `arhiv`
---
 

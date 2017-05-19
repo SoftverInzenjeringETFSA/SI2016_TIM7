@@ -29,4 +29,10 @@ public class UpravljanjeLiteraturomService {
 	public List<Literatura> findAllLiterature(){
 		return literaturaRepository.findAll();
 	}
+	
+	
+	/*public List<Literatura> findAllZaduzenjabyId(Integer id){
+		return literaturaRepository.findAllZaduzenjabyId(id);
+	}
+	*/
 }

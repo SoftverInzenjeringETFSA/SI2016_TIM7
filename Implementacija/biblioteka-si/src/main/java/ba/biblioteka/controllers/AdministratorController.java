@@ -50,12 +50,14 @@ public class AdministratorController {
 	}
 	
 	@RequestMapping(value = "literatura/kategorija/{id}", method = RequestMethod.GET)
-	public List<Literatura> findCategoryById(@PathVariable("id") Integer id) {
-		return this.literaturaService.findAllLiteratureByCategory(id);
-	}
+	 	public List<Literatura> findCategoryById(@PathVariable("id") Integer id) {
+	 		return this.literaturaService.findAllLiteratureByCategory(id);
+	 }
+
 	
-	@RequestMapping(value = "/clan/{id}", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/clan/{id}", method = RequestMethod.GET)
 	public ClanBiblioteke findMemberById(@PathVariable("id") Integer id) {
-		return this.administracijaService.findById(id);
-	}
+	 		return this.administracijaService.findById(id);
+	 	}
+	 	*/
 }

@@ -15,4 +15,9 @@ public interface LiteraturaRepository extends Repository<Literatura, Integer> {
 	
 	@Query("select l from Literatura l where l.kategorija.id = :id")
 	public List<Literatura> findAllLiteratureForCategory(@Param("id") Integer id);
+	
+	/*@Query("select l from Literatura l where l.unajmio_clan.id = :id")
+	public List<Literatura> findAllZaduzenjabyId(@Param("id") Integer id);
+	*/
+	
 }

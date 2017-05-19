@@ -10,40 +10,33 @@
     </div>
 
 
-    <div class="row">
-      <div class="col-md-4 col-sm-12 notification">
-        <h2> Obavještenja </h2>
-        <span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue massa tempor bibendum maximus. Phasellus sodales id turpis non vehicula. Curabitur ac nisl a velit pellentesque faucibus eu vel libero. Quisque nisl massa, mattis sed convallis vel, suscipit eget diam. Sed in congue dui, in facilisis purus. Integer a commodo arcu. Nulla at ex ante. Nulla facilisi. <br> <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin condimentum non nunc ut venenatis. Sed interdum suscipit urna quis pellentesque. Nunc quis erat ac odio rutrum placerat. His reque tollit assueverit eu, ea eum ludus appetere referrentur. Vix fabulas constituto et. Soluta similique eu pro. <br> <br> Vel an prompta saperet, an nam assum probatus deseruisse. Cibo disputando complectitur ex vel, cu melius perfecto similique quo. Te etiam expetendis duo, eos in corrumpit reprimique. Vix ad diam legimus offendit, ne pri alia sale scribentur. Omnes utamur equidem an vim, percipit consequat consequuntur sea cu, audire laoreet docendi ut duo. Id vis audiam lucilius. Vero equidem omittantur has ea, ius aliquid lobortis eu. Id eam libris sententiae.</span>
-      </div>
-      
-      
-    </div>
-    <div class="row title">
-      <div class="col-md-4 col-sm-12">
-        <h2> Najnoviji naslovi </h2>
-        <div class="row">
-          <table>
-            <tr>
-              <td>    Lorem ipsum dolor sit amet, te diam nonumes vis, eu eos tacimates platonem, sea ea elit decore.  </td>
-            </tr>
-            <tr>
-              <td>Clita tation deleniti pri id, natum labore legimus vel ad, quo fugit persius blandit at.
-              </td>
-            </tr>
-            <tr>
-              <td>Movet appetere ei sed, nemore audire pri ea, paulo scripta recusabo et qui.  </td>
-            </tr>
-            <tr>
-              <td>Modus moderatius est ei, cu vidit virtute bonorum vel, vim cu esse vidisse vituperata.
-              </td>
-            </tr>
-            <tr>
-              <td>Ne viris zril perfecto sed. Vim et eros inimicus. Te duo modus viris, est ei dico aliquando. </td>
-            </tr>
-          </table>
-        </div>
-      </div>
+
+  <div class="row">
+    <h3 class="available-literature"> Dostupna literatura </h3>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Naziv literature</th>
+            <th>Autor literature</th>
+            <th>Kategorija</th>
+            <th>Potkategorija</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each model as |literatura|}}
+          <tr>
+            <td>{{literatura.naziv_literature}}</td>
+            <td>{{literatura.autor_literature}}</td>
+            <td>{{literatura.kategorija.naziv_kategorije}}</td>
+            <td>{{literatura.kategorija.potkategorija}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
     </div>
   </div>
+
+
+  </div>
 </div>
-{{footer-main}}

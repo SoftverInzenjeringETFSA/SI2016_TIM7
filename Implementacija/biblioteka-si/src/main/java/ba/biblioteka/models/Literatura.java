@@ -31,9 +31,25 @@ public class Literatura implements Serializable {
     private String mogucnost_preuzimanja;
     private Date datum_unosa;
     
+    private Date datum_iznajmljivanja;
+    private Date datum_povratka;
+    
     @ManyToOne(targetEntity=Kategorija.class)
     @JoinColumn(name="kategorija")
     private Kategorija kategorija;
+    
+    @ManyToOne(targetEntity=ClanBiblioteke.class)
+    @JoinColumn(name="unajmio_clan")
+    private ClanBiblioteke clan;
+    
+    @ManyToOne(targetEntity=Administrator.class)
+    @JoinColumn(name="unajmio_administrator")
+    private Administrator administrator;
+    
+    @ManyToOne(targetEntity=Moderator.class)
+    @JoinColumn(name="unajmio_moderator")
+    private Moderator moderator;
+    
 
     public Literatura() {
     	
@@ -118,4 +134,46 @@ public class Literatura implements Serializable {
 	public void setKategorija(Kategorija kategorija) {
 		this.kategorija = kategorija;
 	}
+	
+	public ClanBiblioteke getClanBiblioteke() {
+		return clan;
+	}
+
+	public void setClanBiblioteke(ClanBiblioteke clan) {
+		this.clan = clan;
+	}
+	
+	public Administrator getAdministrator() {
+		return administrator;
+	}
+
+	public void setAdministrator(Administrator administrator) {
+		this.administrator = administrator;
+	}
+	
+	public Moderator getModerator () {
+		return moderator ;
+	}
+
+	public void setModerator (Moderator moderator) {
+		this.moderator = moderator;
+	}
+
+	public Date getDatum_iznajmljivanja() {
+		return datum_iznajmljivanja;
+	}
+
+	public void setDatum_iznajmljivanja(Date datum_iznajmljivanja) {
+		this.datum_iznajmljivanja = datum_iznajmljivanja;
+	}
+
+	public Date getDatum_povratka() {
+		return datum_povratka;
+	}
+
+	public void setDatum_povratka(Date datum_povratka) {
+		this.datum_povratka = datum_povratka;
+	}
+	
+	
 }
