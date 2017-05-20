@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ba.biblioteka.models.ClanBiblioteke;
 import ba.biblioteka.models.Kategorija;
 import ba.biblioteka.models.Literatura;
 import ba.biblioteka.repositories.KategorijaRepository;
@@ -30,9 +31,11 @@ public class UpravljanjeLiteraturomService {
 		return literaturaRepository.findAll();
 	}
 	
-	
+	public Literatura findById(Integer id){
+		return this.literaturaRepository.findOne(id);
+	}
 	/*public List<Literatura> findAllZaduzenjabyId(Integer id){
 		return literaturaRepository.findAllZaduzenjabyId(id);
-	}
-	*/
+	}*/
+	
 }

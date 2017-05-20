@@ -25,7 +25,7 @@ public class Literatura implements Serializable {
     private String autor_literature;
     private String naziv_literature;
     private String izdavac;
-    private Date godina_izdavanja;
+    private Integer godina_izdavanja;
     private Integer broj_strana;
     private String komentar;
     private String mogucnost_preuzimanja;
@@ -43,11 +43,11 @@ public class Literatura implements Serializable {
     private ClanBiblioteke clan;
     
     @ManyToOne(targetEntity=Administrator.class)
-    @JoinColumn(name="unajmio_administrator")
+    @JoinColumn(name="iznajmio_administrator")
     private Administrator administrator;
     
     @ManyToOne(targetEntity=Moderator.class)
-    @JoinColumn(name="unajmio_moderator")
+    @JoinColumn(name="iznajmio_moderator")
     private Moderator moderator;
     
 
@@ -87,11 +87,11 @@ public class Literatura implements Serializable {
 		this.izdavac = izdavac;
 	}
 
-	public Date getGodina_izdavanja() {
+	public Integer getGodina_izdavanja() {
 		return godina_izdavanja;
 	}
 
-	public void setGodina_izdavanja(Date godina_izdavanja) {
+	public void setGodina_izdavanja(Integer godina_izdavanja) {
 		this.godina_izdavanja = godina_izdavanja;
 	}
 

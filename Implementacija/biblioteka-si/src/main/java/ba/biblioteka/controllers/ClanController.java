@@ -28,10 +28,10 @@ public class ClanController {
 	
 	
 	/*@RequestMapping(value = "/clan/{id}", method = RequestMethod.GET)
-	public ClanBiblioteke findMemberById(@PathVariable("id") Integer id) {
-	 		return this.administracijaService.findById(id);
+	public List<Literatura> findAllZaduzenjabyId(@PathVariable("id") Integer id) {
+	 		return this.literaturaService.findAllZaduzenjabyId(id);
 	 	}
-	 	*/
+	 */	
 }
 
 
