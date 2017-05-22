@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import ba.biblioteka.models.ClanBiblioteke;
 import ba.biblioteka.models.Kategorija;
 import ba.biblioteka.models.Literatura;
 import ba.biblioteka.repositories.KategorijaRepository;
@@ -60,5 +61,9 @@ public class UpravljanjeLiteraturomService {
 	
 	public List<Literatura> searchLiterature(String query) {
 		return this.literaturaRepository.searchLiterature(query);
+	}
+	
+	public Literatura findById(Integer id){
+		return this.literaturaRepository.findOne(id);
 	}
 }

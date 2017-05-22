@@ -29,8 +29,8 @@ public interface ModeratorRepository extends Repository<Moderator, Integer> {
 				+ ":email as email, "
 				+ "id as id_osobe "
 				+ "from osoba "
-				+ "where korisnicko_ime = :korisnickoIme", nativeQuery = true)
-	public void addNewMod(@Param("korisnickoIme") String korisnickoIme, 
+				+ "where id = :id_osobe", nativeQuery = true)
+	public void addNewMod(@Param("id_osobe") Integer id_osobe, 
 						  @Param("sigurnosniId") Integer sigurnosniId,
 						  @Param("adresa") String adresa, 
 						  @Param("grad") String grad, 

@@ -47,10 +47,11 @@ public class AdministratorController {
 	}
 	
 	@RequestMapping(value = "/administratori/dodaj", method = RequestMethod.POST)
-	public void addNewAdmin(@RequestParam("korisnickoIme") String korisnickoIme, @RequestParam("sigurnosniId") Integer sigurnosniId) {
+	public void addNewAdmin(@RequestParam("korisnicko-ime") Integer idOsobe, 
+			@RequestParam("sigurnosniId") Integer sigurnosniId) {
 		//TODO: Add more validation
-		if(korisnickoIme != null && sigurnosniId != null)
-			this.administracijaService.addNewAdmin(korisnickoIme, sigurnosniId);
+		if(idOsobe != null && sigurnosniId != null)
+			this.administracijaService.addNewAdmin(idOsobe, sigurnosniId);
 	}
 	
 	@RequestMapping("/moderatori")
@@ -64,15 +65,15 @@ public class AdministratorController {
 	}
 	
 	@RequestMapping(value = "/moderatori/dodaj", method = RequestMethod.POST)
-	public void addNewMod(@RequestParam("korisnickoIme") String korisnickoIme, 
+	public void addNewMod(@RequestParam("korisnicko-ime") Integer idOsobe, 
 						  @RequestParam("sigurnosniId") Integer sigurnosniId,
 						  @RequestParam("adresa") String adresa,
 						  @RequestParam("grad") String grad,
 						  @RequestParam("email") String email) {
 		
 		//TODO: Add more validation
-		if(korisnickoIme != null && sigurnosniId != null && adresa != null && grad != null && email != null)
-			this.administracijaService.addNewMod(korisnickoIme, sigurnosniId, adresa, grad, email);
+		if(idOsobe != null && sigurnosniId != null && adresa != null && grad != null && email != null)
+			this.administracijaService.addNewMod(idOsobe, sigurnosniId, adresa, grad, email);
 	}
 	
 	@RequestMapping("/clanovi")
@@ -99,6 +100,7 @@ public class AdministratorController {
 		DateFormat df = new SimpleDateFormat("YYYY-MM-DD");
 		this.administracijaService.addNewMember(brojClanskeKarte, df.parse(datumRodjenja), adresa, mjestoStanovanja, brojTelefona, ustanova, email, idOsobe);
 	}
+	
 	
 	@RequestMapping(value = "/clan/{id}", method = RequestMethod.GET)
 	public ClanBiblioteke findMemberById(@PathVariable("id") Integer id) {

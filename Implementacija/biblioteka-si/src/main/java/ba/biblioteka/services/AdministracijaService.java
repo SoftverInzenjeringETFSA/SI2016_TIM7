@@ -37,8 +37,8 @@ public class AdministracijaService {
 		this.adminRepository.deleteAdmin(id);
 	}
 	
-	public void addNewAdmin(String korisnickoIme, Integer sigurnosniId){
-		this.adminRepository.addNewAdmin(korisnickoIme, sigurnosniId);
+	public void addNewAdmin(Integer idOsobe, Integer sigurnosniId){
+		this.adminRepository.addNewAdmin(idOsobe, sigurnosniId);
 	}
 	
 	
@@ -51,7 +51,7 @@ public class AdministracijaService {
 		this.moderatorRepository.deleteMod(id);
 	}
 	
-	public void addNewMod(String korisnickoIme, Integer sigurnosniId, String adresa, String grad, String email){
+	public void addNewMod(Integer korisnickoIme, Integer sigurnosniId, String adresa, String grad, String email){
 		this.moderatorRepository.addNewMod(korisnickoIme, sigurnosniId, adresa, grad, email);
 	}
 	

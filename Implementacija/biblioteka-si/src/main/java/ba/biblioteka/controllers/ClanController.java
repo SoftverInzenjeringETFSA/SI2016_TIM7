@@ -30,6 +30,11 @@ public class ClanController {
 		return this.literaturaService.findAllLiterature();
 	}
 	
+	@RequestMapping(value = "/literatura/{id}", method = RequestMethod.GET)
+	public Literatura findLiteraturaById(@PathVariable("id") Integer id) {
+		return this.literaturaService.findById(id);
+	}
+	
 	@RequestMapping(value = "/brisi", method = RequestMethod.POST)
 	public void deleteCategory(@RequestParam("id") Integer id) {
 		this.clanService.deleteMember(id);

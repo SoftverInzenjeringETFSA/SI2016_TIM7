@@ -22,6 +22,10 @@ public interface AdministratorRepository extends Repository<Administrator, Integ
 	
 	@Transactional
 	@Modifying
-	@Query(value="insert into administrator (sigurnosni_id, id_osobe) select :sigurnosniId as sigurnosni_id, id as id_osobe from osoba where korisnicko_ime = :korisnickoIme", nativeQuery = true)
-	public void addNewAdmin(@Param("korisnickoIme") String korisnickoIme, @Param("sigurnosniId") Integer sigurnosniId);
+	@Query(value="insert into administrator (sigurnosni_id, id_osobe) select :sigurnosniId as sigurnosni_id,"
+			+ "id as id_osobe "
+				+ "from osoba "
+				+ "where id = :id_osobe", nativeQuery = true)
+	public void addNewAdmin(@Param("id_osobe") Integer id_osobe, 
+			@Param("sigurnosniId") Integer sigurnosniId);
 }
