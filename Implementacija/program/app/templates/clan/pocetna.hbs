@@ -1,12 +1,7 @@
 {{navbar-korisnik}}
+{{log model.literatura}}
 <div class="front-page">
 	<div class="container">
-		<div class="row">
-			
-			<div class="col-md-7 col-sm-12 col-md-offset-1  second">
-				<h2>Dobrodošli, 'ime korisnika' </h2>
-			</div>
-		</div>
 		<div class="row">
 			<h3 class="available-literature"> Dostupna literatura </h3>
 			<div class="table-responsive">
@@ -19,16 +14,15 @@
 							<th>Potkategorija</th>
 						</tr>
 					</thead>
-					<tbody>
-						{{#each model as |literatura|}}
+
+						{{#each model as |model|}}
 						<tr>
-							<td>{{literatura.naziv_literature}}</td>
-							<td>{{literatura.autor_literature}}</td>
-							<td>{{literatura.kategorija.naziv_kategorije}}</td>
-							<td>{{literatura.kategorija.potkategorija}}</td>
+							<td>{{#link-to "clan.show" model.id}} {{model.naziv_literature}} {{/link-to}}</td>
+							<td>{{model.autor_literature}}</td>
+							<td>{{model.kategorija.naziv_kategorije}}</td>
+							<td>{{model.kategorija.potkategorija}}</td>
 						</tr>
-						{{/each}}
-					</tbody>
+						{{/each}}											
 				</table>
 			</div>
 		</div>

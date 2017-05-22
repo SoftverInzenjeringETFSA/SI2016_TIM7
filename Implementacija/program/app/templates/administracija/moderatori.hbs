@@ -10,7 +10,8 @@
     <div class="col-md-6 col-sm-8 col-xs-12">
       <h3>Dodaj novog moderatora</h3>
       <form method="POST" action="http://localhost:8080/administracija/moderatori/dodaj">
-            <input required type="text" name="korisnickoIme" class="form-control" placeholder="Korisnicko ime">
+            <select name="korisnicko-ime" class="form-control" class="select-korisnicko-ime"></select>
+            
             <input required type="text" name="sigurnosniId" class="form-control" placeholder="Sigurnosni id">
             <input required type="text" name="adresa" class="form-control" placeholder="Adresa">
             <input required type="text" name="grad" class="form-control" placeholder="Grad">
@@ -58,3 +59,4 @@
 </div>
 
 <script type="text/javascript" src="/assets/js/js-admin-moderator.js"></script>
+<script type="text/javascript" src="/assets/js/js-osoba.js"></script>

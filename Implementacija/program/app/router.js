@@ -11,7 +11,6 @@ Router.map(function() {
   this.route('pretraga');
   this.route('kategorije');
   this.route('profil');
-  this.route('faq');
   this.route('login');
   this.route('register')
   this.route('iznajmljivanje');
@@ -21,6 +20,7 @@ Router.map(function() {
     this.route('moderatori');
     this.route('administratori');
     this.route('osoba');
+    this.route('pocetna');
   });
 
   this.route('moderator', function() {
@@ -33,6 +33,8 @@ Router.map(function() {
   this.route('clan', function() {
     this.route('pocetna');
     this.route('literatura');
+    this.route('faq');
+    this.route('show', { path: '/:id' });
   });
 });
 

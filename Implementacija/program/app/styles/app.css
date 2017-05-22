@@ -14,15 +14,13 @@
   margin: 5px 0;
 }
 
-.theme-showcase .navbar-main .container {
-  width: auto;
-}
 .btn-default {
   color: #333;
   background-color: #fff;
   border-color: #ccc;
   margin-right: 3%;
 }
+/*
 .navbar-main-nav > li > a {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -32,8 +30,7 @@
 
 .navbar-main {
   width: 100vw!important;
-}
-
+}*/
 
 #scroll-body{
   max-height: 150px;
@@ -333,17 +330,15 @@ margin-right: 20px;
 .form-control {
   margin: 10px 0;
 }
-.info-block {
+/*.info-block {
 
     text-transform: uppercase;
-    color: #0188ba;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 900;
+    color: #002b80;
+    font-weight: 600;
     font-style: normal;
     border: 1px solid #d5d5d5;
     font-size: 20px;
-    padding: 0px 80px;
-    /*padding-top: 30px;*/
+    padding: 0px 100px;
     padding-bottom: 0px;
     text-align: center;
     margin-bottom: 20px;
@@ -354,7 +349,119 @@ margin-right: 20px;
   color: #0188ba;
   padding: 10px;
 }
+*/
 
+.second {
+    background-color: #fefefe;
+    padding: 30px;
+}
+.second .item {
+    float: left;
+    text-align: center;
+    margin-top: 20px;
+}
+.second .title {
+    text-transform: uppercase;
+    color: #0188ba;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+    margin-top: 30px;
+}
+
+.second a {
+  text-decoration: none;
+}
+
+.second .item .fa {
+    font-size: 30px;
+    color: #222;
+}
 .mod-options {
   margin-top: 50px!important;
 }
+
+.table > thead > tr > th {
+  width: 10px!important;
+}
+
+.table > tbody > tr  {
+  width: 10px!important;
+}
+/*
+.table {
+    width: 1200px;
+    max-width: 100%;
+    margin-bottom: 20px;
+    margin-top: 50px;
+
+}*/
+
+h3 {
+  color: #0188ba;
+}
+
+input[type="submit"] {
+  background-color: #0188ba;
+  border-color: #0188ba;
+}
+
+input[type="submit"]:hover {
+  background-color: #0188ba;
+  border-color: #0188ba;
+
+}
+
+.navbar {
+  background: #181C25;
+  border:0px!important;
+  border-radius:0px!important;
+  margin-bottom:0;
+  border-bottom:0;
+    width: 100%;
+    height: 70px;
+}
+
+/*nav.stick {
+    position: fixed;
+    top: 0;
+    z-index: 10000;
+    margin-top:12px;
+}
+*/
+
+nav a{
+  top:-28px;
+  text-transform: uppercase;
+  color: #d5d5d5!important;
+  font-size: 15px;
+  /*font-weight: bold;*/
+
+}
+
+nav a:hover {
+  cursor: pointer;
+  background:#1d212b!important;
+  text-shadow: 0;
+  color:#0077B5!important;
+}
+
+nav a:focus{
+  cursor: pointer;
+  background:#1d212b!important;
+  text-shadow: 0;
+  
+}
+
+nav a:active{
+  background:#1d212b!important;
+  text-shadow: 0;
+  
+}
+
+nav a:hover {
+  color: #1d212b ;
+  cursor: pointer;
+  text-shadow: 0;
+}
+

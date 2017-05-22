@@ -9,7 +9,8 @@
       <div class="col-md-6 col-sm-8 col-xs-12">
          <h3>Dodaj novog administratora</h3>
          <form method="POST" action="http://localhost:8080/administracija/administratori/dodaj">
-            <input required type="text" name="korisnickoIme" class="form-control" placeholder="Korisnicko ime">
+            <select name="korisnicko-ime" class="form-control" class="select-korisnicko-ime"></select>
+
             <input required type="text" name="sigurnosniId" class="form-control" placeholder="Sigurnosni id">
             <input required type="submit" name="dodaj-novog-administratora" class="btn btn-success" value="Dodaj novog administratora"> 
          </form>
@@ -47,3 +48,4 @@
 </div>
 
 <script type="text/javascript" src="/assets/js/js-admin-admin.js"></script>
+<script type="text/javascript" src="/assets/js/js-osoba.js"></script>
