@@ -1,0 +1,27 @@
+{{admin-nav}}
+
+<div id="panel-holder" class="container">
+   <h3>Članovi</h3>
+   <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua.
+   </h5>
+
+   <div class="panel-section row">
+      <div class="col-md-6 col-sm-8 col-xs-12">
+         <h3>Dodaj novog člana</h3>
+      
+         <form method="POST" action="http://localhost:8080/administracija/osoba/dodaj">
+            <input required type="text" name="korisnicko-ime" class="form-control" placeholder="Korisnicko ime">
+            <input required type="text" name="ime" class="form-control" placeholder="Ime">
+            <input required type="text" name="prezime" class="form-control" placeholder="Prezime">
+            <input required type="password" name="sifra" class="form-control" placeholder="Sifra">
+           
+
+            <input type="submit" name="dodaj-novu-osobu" class="btn btn-success" value="Dodaj novu osobu"> 
+         </form>
+      </div>
+
+      <div class="col-md-6 col-sm-4 hidden-xs"></div>
+   </div>
+
+</div>

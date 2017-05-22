@@ -25,15 +25,31 @@ public class Literatura implements Serializable {
     private String autor_literature;
     private String naziv_literature;
     private String izdavac;
-    private Date godina_izdavanja;
+    private Integer godina_izdavanja;
     private Integer broj_strana;
     private String komentar;
-    private String mogucnost_preuzimanja;
+    private Integer mogucnost_preuzimanja;
     private Date datum_unosa;
+    
+    private Date datum_iznajmljivanja;
+    private Date datum_povratka;
     
     @ManyToOne(targetEntity=Kategorija.class)
     @JoinColumn(name="kategorija")
     private Kategorija kategorija;
+    
+    @ManyToOne(targetEntity=ClanBiblioteke.class)
+    @JoinColumn(name="unajmio_clan")
+    private ClanBiblioteke clan;
+    
+    @ManyToOne(targetEntity=Administrator.class)
+    @JoinColumn(name="iznajmio_administrator")
+    private Administrator administrator;
+    
+    @ManyToOne(targetEntity=Moderator.class)
+    @JoinColumn(name="iznajmio_moderator")
+    private Moderator moderator;
+    
 
     public Literatura() {
     	
@@ -71,11 +87,11 @@ public class Literatura implements Serializable {
 		this.izdavac = izdavac;
 	}
 
-	public Date getGodina_izdavanja() {
+	public Integer getGodina_izdavanja() {
 		return godina_izdavanja;
 	}
 
-	public void setGodina_izdavanja(Date godina_izdavanja) {
+	public void setGodina_izdavanja(Integer godina_izdavanja) {
 		this.godina_izdavanja = godina_izdavanja;
 	}
 
@@ -95,11 +111,11 @@ public class Literatura implements Serializable {
 		this.komentar = komentar;
 	}
 
-	public String getMogucnost_preuzimanja() {
+	public Integer getMogucnost_preuzimanja() {
 		return mogucnost_preuzimanja;
 	}
 
-	public void setMogucnost_preuzimanja(String mogucnost_preuzimanja) {
+	public void setMogucnost_preuzimanja(Integer mogucnost_preuzimanja) {
 		this.mogucnost_preuzimanja = mogucnost_preuzimanja;
 	}
 
@@ -118,4 +134,46 @@ public class Literatura implements Serializable {
 	public void setKategorija(Kategorija kategorija) {
 		this.kategorija = kategorija;
 	}
+	
+	public ClanBiblioteke getClanBiblioteke() {
+		return clan;
+	}
+
+	public void setClanBiblioteke(ClanBiblioteke clan) {
+		this.clan = clan;
+	}
+	
+	public Administrator getAdministrator() {
+		return administrator;
+	}
+
+	public void setAdministrator(Administrator administrator) {
+		this.administrator = administrator;
+	}
+	
+	public Moderator getModerator () {
+		return moderator ;
+	}
+
+	public void setModerator (Moderator moderator) {
+		this.moderator = moderator;
+	}
+
+	public Date getDatum_iznajmljivanja() {
+		return datum_iznajmljivanja;
+	}
+
+	public void setDatum_iznajmljivanja(Date datum_iznajmljivanja) {
+		this.datum_iznajmljivanja = datum_iznajmljivanja;
+	}
+
+	public Date getDatum_povratka() {
+		return datum_povratka;
+	}
+
+	public void setDatum_povratka(Date datum_povratka) {
+		this.datum_povratka = datum_povratka;
+	}
+	
+	
 }

@@ -20,6 +20,7 @@ Router.map(function() {
     this.route('clanovi');
     this.route('moderatori');
     this.route('administratori');
+    this.route('osoba');
   });
 
   this.route('moderator', function() {

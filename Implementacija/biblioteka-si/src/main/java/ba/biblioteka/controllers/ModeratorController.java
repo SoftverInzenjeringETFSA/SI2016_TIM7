@@ -71,7 +71,7 @@ public class ModeratorController {
 	public void addNewLiterature(@RequestParam("autor-literature") String autor, 
 			@RequestParam("naziv-literature") String naziv,
 			@RequestParam("izdavac") String izdavac,
-			@RequestParam("godina-izdavanja") String godina, 
+			@RequestParam("godina-izdavanja") Integer godina, 
 			@RequestParam("broj-strana") Integer brojStrana,
 			@RequestParam("komentar") String komentar,
 			@RequestParam("mogucnost-preuzimanja") boolean mPreuzimanja,
@@ -80,7 +80,7 @@ public class ModeratorController {
 	{
 		
 		DateFormat df = new SimpleDateFormat("YYYY-MM-DD");
-		this.literaturaService.addNewLiterature(autor, naziv, izdavac, df.parse(godina), brojStrana, komentar, mPreuzimanja, df.parse(datumUnosa), kategorijaId);
+		this.literaturaService.addNewLiterature(autor, naziv, izdavac, godina, brojStrana, komentar, mPreuzimanja, df.parse(datumUnosa), kategorijaId);
 	}
 	
 	@RequestMapping(value = "literatura/kategorija/{id}", method = RequestMethod.GET)

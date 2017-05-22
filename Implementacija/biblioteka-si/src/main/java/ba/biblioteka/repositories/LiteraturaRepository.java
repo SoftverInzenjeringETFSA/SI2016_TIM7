@@ -32,7 +32,7 @@ public interface LiteraturaRepository extends Repository<Literatura, Integer> {
 	public void addNewLiterature(String autor, 
 			String naziv,
 			String izdavac,
-			Date godina, 
+			Integer godina, 
 			Integer brojStrana,
 			String komentar,
 			boolean mPreuzimanja,

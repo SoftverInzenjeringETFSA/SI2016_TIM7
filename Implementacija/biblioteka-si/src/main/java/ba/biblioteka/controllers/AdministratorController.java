@@ -103,20 +103,15 @@ public class AdministratorController {
 		return this.administracijaService.findById(id);
 	}
 	
-	/*
-	@RequestMapping("/kategorije")
-	public List<Kategorija> findAllCategories(){
-		return this.literaturaService.findAllCategories();
+	@RequestMapping(value = "/osoba/dodaj", method = RequestMethod.POST)
+	public void addNewOsoba(@RequestParam("korisnicko-ime") String korisnicko_ime, 
+						  @RequestParam("ime") String ime,
+						  @RequestParam("prezime") String prezime,
+						  @RequestParam("sifra") String sifra){
+		
+		//TODO: Add more validation
+		//if(korisnickoIme != null && sigurnosniId != null && adresa != null && grad != null && email != null)
+			this.administracijaService.addNewOsoba(korisnicko_ime, ime, prezime, sifra);
 	}
 	
-	@RequestMapping("/literatura")
-	public List<Literatura> findAllLiterature() {
-		return this.literaturaService.findAllLiterature();
-	}
-	
-	@RequestMapping(value = "literatura/kategorija/{id}", method = RequestMethod.GET)
-	public List<Literatura> findCategoryById(@PathVariable("id") Integer id) {
-		return this.literaturaService.findAllLiteratureByCategory(id);
-	}
-	*/
 }

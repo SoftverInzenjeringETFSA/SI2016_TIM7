@@ -13,6 +13,7 @@ import ba.biblioteka.models.Moderator;
 import ba.biblioteka.repositories.AdministratorRepository;
 import ba.biblioteka.repositories.ClanBibliotekeRepository;
 import ba.biblioteka.repositories.ModeratorRepository;
+import ba.biblioteka.repositories.OsobaRepository;
 
 @Service
 public class AdministracijaService {
@@ -23,6 +24,8 @@ public class AdministracijaService {
 	ModeratorRepository moderatorRepository;
 	@Autowired
 	ClanBibliotekeRepository clanRepository;
+	@Autowired
+	OsobaRepository osobaRepository;
 	
 	
 	public List<Administrator> findAllAdmins() {
@@ -51,6 +54,9 @@ public class AdministracijaService {
 		this.moderatorRepository.addNewMod(korisnickoIme, sigurnosniId, adresa, grad, email);
 	}
 	
+	public void addNewOsoba(String korisnickoIme, String ime, String prezime, String sifra){
+		this.osobaRepository.addNewOsoba(korisnickoIme, ime, prezime, sifra);
+	}
 	
 	public List<ClanBiblioteke> findAllMembers() {
 		return this.clanRepository.findAll();
