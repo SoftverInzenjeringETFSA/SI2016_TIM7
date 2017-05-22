@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import ba.biblioteka.models.Administrator;
 import ba.biblioteka.models.ClanBiblioteke;
 import ba.biblioteka.models.Moderator;
+import ba.biblioteka.models.Osoba;
 import ba.biblioteka.repositories.AdministratorRepository;
 import ba.biblioteka.repositories.ClanBibliotekeRepository;
 import ba.biblioteka.repositories.ModeratorRepository;
@@ -62,6 +63,10 @@ public class AdministracijaService {
 		return this.clanRepository.findAll();
 	}
 	
+	public List<Osoba> findAllOsobe() {
+		return this.osobaRepository.findAll();
+		
+	}
 	public void deleteMember(Integer id){
 		this.clanRepository.deleteMember(id);
 	}
@@ -73,7 +78,7 @@ public class AdministracijaService {
 							 String brojTelefona, 
 							 String ustanova,
 							 String email,
-							 String korisnickoIme){
+							 Integer korisnickoIme){
 		this.clanRepository.addNewMember(brojClanskeKarte, datumRodjenja, adresa, mjestoStanovanja, brojTelefona, ustanova, email, korisnickoIme);
 	}
 	

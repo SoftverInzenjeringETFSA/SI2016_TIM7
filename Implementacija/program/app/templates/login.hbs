@@ -1,73 +1,19 @@
-
-<div class="container theme-showcase" role="main">
-	{{outlet}}
-</div>
-<!-- All the files that are required -->
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<!-- Where all the magic happens -->
-
-<!-- LOGIN FORM -->
-<div class="text-center" style="padding:50px 0">
-	<div class="logo">Prijava</div>
-	<!-- Main Form -->
-	<div class="login-form-1">
-		<form id="login-form" class="text-left">
-			<div class="login-form-main-message"></div>
-			<div class="main-login-form">
-				<div class="login-group">
-					<div class="form-group">
-						<label for="lg_username" class="sr-only">Username</label>
-						<input type="text" class="form-control" id="lg_username" name="lg_username" placeholder="korisničko ime">
-					</div>
-					<div class="form-group">
-						<label for="lg_password" class="sr-only">Password</label>
-						<input type="password" class="form-control" id="lg_password" name="lg_password" placeholder="šifra">
-					</div>
-					<div class="form-group login-group-checkbox">
-						<input type="checkbox" id="lg_remember" name="lg_remember">
-						<label for="lg_remember">zapamti</label>
-					</div>
-				</div>
-				<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
-			</div>
-			<div class="etc-login-form">
-				<p>forgot your password? <a id="link" href="#">click here</a></p>
-				<p>Novi korisnik? <a id="link" href="/register">Registruj se</a></p>
-			</div>
-		</form>
-	</div>
-	<!-- end:Main Form -->
+<div id="bg">
+  <img src="/assets/images/librarybg.jpg" alt="slika biblioteke">
 </div>
 
+<div id="formaBG">
+  <div class="module">
 
+  <div style="text-align: center">
+ <img src="http://i.imgur.com/Fk1Urva.png" alt="" class="icon"/>
+    </div>
 
-<!-- FORGOT PASSWORD FORM -->
-<div class="text-center" style="padding:50px 0">
-	<div class="logo">forgot password</div>
-	<!-- Main Form -->
-	<div class="login-form-1">
-		<form id="forgot-password-form" class="text-left">
-			<div class="etc-login-form">
-			</div>
-			<div class="login-form-main-message"></div>
-			<div class="main-login-form">
-				<div class="login-group">
-					<div class="form-group">
-						<label for="fp_email" class="sr-only">Email address</label>
-						<input type="text" class="form-control" id="fp_email" name="fp_email" placeholder="email address">
-					</div>
-				</div>
-				<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
-			</div>
-			<div class="etc-login-form">
-				<p>already have an account? <a id="link" href="#">login here</a></p>
-				<p>Novi korisnik? <a id="link" href="/register">Registruj se</a></p>
-			</div>
-		</form>
-	</div>
-	<!-- end:Main Form -->
+    <form method="POST" action="">
+      <input type="text" placeholder="Korisnicko Ime" class="textbox" />
+      <input type="password" placeholder="Sifra" class="textbox" />
+      <input type="button" value="Login" id="next-step-button" class="button">
+    </form>
+
 </div>
-{{outlet}}
+</div>

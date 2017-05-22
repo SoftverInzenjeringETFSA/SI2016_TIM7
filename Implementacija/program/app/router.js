@@ -27,6 +27,7 @@ Router.map(function() {
     this.route('clanovi');
     this.route('kategorije');
     this.route('literatura');
+    this.route('pocetna');
   });
 
   this.route('clan', function() {

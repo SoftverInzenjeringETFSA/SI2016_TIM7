@@ -24,7 +24,7 @@ public interface ClanBibliotekeRepository extends Repository<ClanBiblioteke, Int
 	
 	@Transactional
 	@Modifying
-	@Query(value="insert into ClanBiblioteke (broj_clanske_karte, datum_rodjenja, adresa, mjesto_stanovanja, broj_telefona, ustanova, email, id_osobe) "
+	@Query(value="insert into clanbiblioteke (broj_clanske_karte, datum_rodjenja, adresa, mjesto_stanovanja, broj_telefona, ustanova, email, id_osobe) "
 				+ "select :broj_clanske_karte as broj_clanske_karte, "
 				+ ":datum_rodjenja as datum_rodjenja,"
 				+ ":adresa as adresa,"
@@ -34,7 +34,7 @@ public interface ClanBibliotekeRepository extends Repository<ClanBiblioteke, Int
 				+ ":email as email,"
 				+ "id as id_osobe "
 				+ "from osoba "
-				+ "where korisnicko_ime = :korisnickoIme", nativeQuery = true)
+				+ "where id = :id_osobe", nativeQuery = true)
 	public void addNewMember(@Param("broj_clanske_karte") String brojClanskeKarte, 
 							 @Param("datum_rodjenja") Date datumRodjenja,
 							 @Param("adresa") String adresa,
@@ -42,5 +42,23 @@ public interface ClanBibliotekeRepository extends Repository<ClanBiblioteke, Int
 							 @Param("broj_telefona") String brojTelefona,
 							 @Param("ustanova") String ustanova,
 							 @Param("email") String email,
-							 @Param("korisnickoIme") String korisnickoIme);
+							 @Param("id_osobe") Integer id_osobe);
+							 
+	
+/*	
+	@Transactional
+	@Modifying
+	@Query(value="insert into clanbiblioteke (autor_literature, naziv_literature, izdavac, godina_izdavanja, broj_strana, komentar, mogucnost_preuzimanja, datum_unosa, kategorija) "
+			+ "values (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9)", nativeQuery = true)
+	public void addNewMember(String autor, 
+			String naziv,
+			String izdavac,
+			Integer godina, 
+			Integer brojStrana,
+			String komentar,
+			boolean mPreuzimanja,
+			Date datumUnosa,
+			Integer kategorijaId);
+			*/
+	
 }

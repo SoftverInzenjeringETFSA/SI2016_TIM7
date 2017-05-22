@@ -24,4 +24,30 @@
       <div class="col-md-6 col-sm-4 hidden-xs"></div>
    </div>
 
+
+     <div class="panel-section">
+      <h3>Pregled svih osoba</h3>
+      <table class="table table-striped">
+         <thead>
+            <tr>
+              <th>Korisnicko ime</th>
+              <th>Ime</th>
+              <th>Prezime</th>
+            </tr>
+         </thead>
+         <tbody>
+            {{#each model as |osoba|}}
+              <tr>
+              <td>{{osoba.korisnicko_ime}}</td>
+              <td>{{osoba.ime}}</td>
+              <td>{{osoba.prezime}}</td>
+
+
+              
+              </tr>
+            {{/each}}
+         </tbody>
+      </table>
+   </div>
+
 </div>

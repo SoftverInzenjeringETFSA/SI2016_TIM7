@@ -35,7 +35,7 @@ public class ModeratorController {
 		return this.administracijaService.findAllMembers();
 	}
 	
-	@RequestMapping(value = "/clanovi/dodaj", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/clanovi/dodaj", method = RequestMethod.POST)
 	public void addNewMember(@RequestParam("broj_clanske_karte") String brojClanskeKarte, 
 			@RequestParam("datum_rodjenja") String datumRodjenja,
 			@RequestParam("adresa") String adresa,
@@ -43,12 +43,12 @@ public class ModeratorController {
 			@RequestParam("broj_telefona") String brojTelefona,
 			@RequestParam("ustanova") String ustanova,
 			@RequestParam("email") String email,
-			@RequestParam("korisnicko-ime") String korisnickoIme) throws ParseException {
+			@RequestParam("korisnicko-ime") Integer id_osobe) throws ParseException {
 		
 		DateFormat df = new SimpleDateFormat("YYYY-MM-DD");
-		this.administracijaService.addNewMember(brojClanskeKarte, df.parse(datumRodjenja), adresa, mjestoStanovanja, brojTelefona, ustanova, email, korisnickoIme);
+		this.administracijaService.addNewMember(brojClanskeKarte, df.parse(datumRodjenja), adresa, mjestoStanovanja, brojTelefona, ustanova, email, id_osobe);
 	}
-	
+	*/
 	@RequestMapping("/kategorije")
 	public List<Kategorija> findAllCategories(){
 		return this.literaturaService.findAllCategories();
@@ -81,6 +81,21 @@ public class ModeratorController {
 		
 		DateFormat df = new SimpleDateFormat("YYYY-MM-DD");
 		this.literaturaService.addNewLiterature(autor, naziv, izdavac, godina, brojStrana, komentar, mPreuzimanja, df.parse(datumUnosa), kategorijaId);
+	}
+	
+	@RequestMapping(value = "/clanovi/dodaj", method = RequestMethod.POST)
+	public void addNewMember(@RequestParam("broj_clanske_karte") String brojClanskeKarte, 
+			@RequestParam("datum_rodjenja") String datumRodjenja,
+			@RequestParam("adresa") String adresa,
+			@RequestParam("mjesto_stanovanja") String mjestoStanovanja,
+			@RequestParam("broj_telefona") String brojTelefona,
+			@RequestParam("ustanova") String ustanova,
+			@RequestParam("email") String email,
+			@RequestParam("korisnicko-ime") Integer idOsobe)
+			throws ParseException{
+		
+		DateFormat df = new SimpleDateFormat("YYYY-MM-DD");
+		this.administracijaService.addNewMember(brojClanskeKarte, df.parse(datumRodjenja), adresa, mjestoStanovanja, brojTelefona, ustanova, email, idOsobe);
 	}
 	
 	@RequestMapping(value = "literatura/kategorija/{id}", method = RequestMethod.GET)

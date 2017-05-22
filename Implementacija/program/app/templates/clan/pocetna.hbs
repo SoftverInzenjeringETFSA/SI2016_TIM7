@@ -1,43 +1,36 @@
-<div id="panel-holder" class="container">
-   <h3>Pretraga literature</h3>
-
-   <input type="text" id="pretraga-literature" name="pretraga-literature" placeholder="Unesite pojam pretrage">
-
-
-   <div class="panel-section">
-      <h3>Pregled sve literature</h3>
-      <table class="table table-striped">
-		    <thead>
-			    <tr>
-				    <th>Naziv</th>
-				    <th>Autor</th>
-				    <th>Izdavac</th>
-				    <th>Kategorija</th>
-				    <th>Potkategorija</th>
-				    <th>Opcije</th>
-			    </tr>
-		    </thead>
-		    
-		    <tbody id="literatura-lista">
-		      {{#each model as |literatura|}}
-		      <tr>
-			      <td>{{literatura.naziv_literature}}</td>
-			      <td>{{literatura.autor_literature}}</td>
-			      <td>{{literatura.izdavac}}</td>
-
-			      <td>{{literatura.kategorija.naziv_kategorije}}</td>
-			      <td>{{literatura.kategorija.potkategorija}}</td>
-
-			      <td>
-					  <a data-id="{{literatura.id}}" class="btn btn-default download-literature" title="Preuzmi">
-			            <span class="glyphicon glyphicon-download-alt"></span>
-			          </a>
-			      </td>
-		      </tr>
-		      {{/each}}
-		  </tbody>
-		</table>
-   </div>
+{{navbar-korisnik}}
+<div class="front-page">
+	<div class="container">
+		<div class="row">
+			
+			<div class="col-md-7 col-sm-12 col-md-offset-1  second">
+				<h2>Dobrodošli, 'ime korisnika' </h2>
+			</div>
+		</div>
+		<div class="row">
+			<h3 class="available-literature"> Dostupna literatura </h3>
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Naziv literature</th>
+							<th>Autor literature</th>
+							<th>Kategorija</th>
+							<th>Potkategorija</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each model as |literatura|}}
+						<tr>
+							<td>{{literatura.naziv_literature}}</td>
+							<td>{{literatura.autor_literature}}</td>
+							<td>{{literatura.kategorija.naziv_kategorije}}</td>
+							<td>{{literatura.kategorija.potkategorija}}</td>
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 </div>
-
-<script type="text/javascript" src="/assets/js/js-clan-pocetna.js"></script>

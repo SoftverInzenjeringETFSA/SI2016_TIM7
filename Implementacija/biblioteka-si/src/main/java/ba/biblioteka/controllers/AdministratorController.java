@@ -22,6 +22,7 @@ import ba.biblioteka.models.ClanBiblioteke;
 import ba.biblioteka.models.Kategorija;
 import ba.biblioteka.models.Literatura;
 import ba.biblioteka.models.Moderator;
+import ba.biblioteka.models.Osoba;
 import ba.biblioteka.services.AdministracijaService;
 import ba.biblioteka.services.UpravljanjeLiteraturomService;
 
@@ -92,10 +93,11 @@ public class AdministratorController {
 			@RequestParam("broj_telefona") String brojTelefona,
 			@RequestParam("ustanova") String ustanova,
 			@RequestParam("email") String email,
-			@RequestParam("korisnicko-ime") String korisnickoIme) throws ParseException{
+			@RequestParam("korisnicko-ime") Integer idOsobe)
+			throws ParseException{
 		
 		DateFormat df = new SimpleDateFormat("YYYY-MM-DD");
-		this.administracijaService.addNewMember(brojClanskeKarte, df.parse(datumRodjenja), adresa, mjestoStanovanja, brojTelefona, ustanova, email, korisnickoIme);
+		this.administracijaService.addNewMember(brojClanskeKarte, df.parse(datumRodjenja), adresa, mjestoStanovanja, brojTelefona, ustanova, email, idOsobe);
 	}
 	
 	@RequestMapping(value = "/clan/{id}", method = RequestMethod.GET)
@@ -112,6 +114,11 @@ public class AdministratorController {
 		//TODO: Add more validation
 		//if(korisnickoIme != null && sigurnosniId != null && adresa != null && grad != null && email != null)
 			this.administracijaService.addNewOsoba(korisnicko_ime, ime, prezime, sifra);
+	}
+	
+	@RequestMapping("/osoba")
+	public List<Osoba> findAllOsobe() {
+		return this.administracijaService.findAllOsobe();
 	}
 	
 }

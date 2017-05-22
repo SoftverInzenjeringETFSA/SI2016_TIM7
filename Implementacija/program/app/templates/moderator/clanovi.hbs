@@ -11,7 +11,8 @@
          <h3>Dodaj novog člana</h3>
       
          <form method="POST" action="http://localhost:8080/moderator/clanovi/dodaj">
-            <input required type="text" name="korisnicko-ime" class="form-control" placeholder="Korisnicko ime">
+          <select name="korisnicko-ime" class="form-control" class="select-korisnicko-ime"></select>
+
             <input required type="text" name="broj_clanske_karte" class="form-control" placeholder="Broj clanske karte">
             <input required type="date" name="datum_rodjenja" class="form-control" placeholder="Datum rodjenja">
             <input required type="text" name="adresa" class="form-control" placeholder="Adresa">
@@ -68,4 +69,4 @@
    </div>
 </div>
 
-<script type="text/javascript" src="/assets/js/js-admin-clanovi.js"></script>
+<script type="text/javascript" src="/assets/js/js-osoba.js"></script>
