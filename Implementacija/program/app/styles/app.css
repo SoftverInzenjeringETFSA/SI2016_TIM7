@@ -186,17 +186,6 @@ body {
   opacity: 0.77;
 }
 
-#prijavise{
-position: absolute;
-  width: 370px;
-  height: 210px;
-  z-index: 15;
-  top: 50%;
-  left: 50%;
-  margin: -100px 0 0 -150px;
-  background: #111;
-
-}
 
 #pitanja{
   padding-bottom: 120px;
@@ -465,3 +454,26 @@ nav a:hover {
   text-shadow: 0;
 }
 
+.main-page {
+  background-image: url(../assets/images/librarybg.jpg);
+  background-repeat: no-repeat, no-repeat;
+    background-size: cover;
+    height: 100vh!important;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+    z-index: 15%;
+
+}
+
+.main-page #prijavise{
+  width: 500px;
+  padding: 20px;
+  background: #111;
+  margin-top: 200px;
+
+}
+
+a {
+  color: #0188ba!important;
+}
