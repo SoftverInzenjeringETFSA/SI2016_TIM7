@@ -1,11 +1,13 @@
 package ba.biblioteka.services;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import ba.biblioteka.models.ClanBiblioteke;
 import ba.biblioteka.models.Kategorija;
 import ba.biblioteka.models.Literatura;
 import ba.biblioteka.repositories.KategorijaRepository;
@@ -23,6 +25,15 @@ public class UpravljanjeLiteraturomService {
 		return this.kategorijaRepository.findAll();
 	}
 	
+	public void addNewCategory(String nazivKategorije, String potkategorije, String opis){
+		this.kategorijaRepository.addNewCategory(nazivKategorije, potkategorije, opis);
+	}
+	
+	public void deleteCategory(Integer id) {
+		this.kategorijaRepository.deleteCategory(id);
+	}
+	
+	
 	public List<Literatura> findAllLiteratureByCategory(Integer id){
 		return literaturaRepository.findAllLiteratureForCategory(id);
 	}
@@ -31,11 +42,23 @@ public class UpravljanjeLiteraturomService {
 		return literaturaRepository.findAll();
 	}
 	
-	public Literatura findById(Integer id){
-		return this.literaturaRepository.findOne(id);
+	public void addNewLiterature(String autor, 
+								String naziv,
+								String izdavac,
+								Date godina, 
+								Integer brojStrana,
+								String komentar,
+								boolean mPreuzimanja,
+								Date datumUnosa,
+								Integer kategorijaId){
+		this.literaturaRepository.addNewLiterature(autor, naziv, izdavac, godina, brojStrana, komentar, mPreuzimanja, datumUnosa, kategorijaId);
 	}
-	/*public List<Literatura> findAllZaduzenjabyId(Integer id){
-		return literaturaRepository.findAllZaduzenjabyId(id);
-	}*/
 	
+	public void deleteLiterature(Integer id) {
+		this.literaturaRepository.deleteLiterature(id);
+	}
+	
+	public List<Literatura> searchLiterature(String query) {
+		return this.literaturaRepository.searchLiterature(query);
+	}
 }

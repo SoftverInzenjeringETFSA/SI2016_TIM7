@@ -1,0 +1,59 @@
+{{moderator-nav}}
+
+<div id="panel-holder" class="container">
+   <h3>Kategorije</h3>
+   <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua.
+   </h5>
+
+   <div class="panel-section row">
+      <div class="col-md-6 col-sm-8 col-xs-12">
+         <h3>Dodaj novu kategoriju</h3>
+      
+         <form method="POST" action="http://localhost:8080/moderator/kategorije/dodaj">
+            <input required type="text" name="naziv-kategorije" class="form-control" placeholder="Naziv kategorije">
+            <input required type="text" name="potkategorije" class="form-control" placeholder="Potkategorije">
+            <textarea required name="opis-kategorije" class="form-control" placeholder="Opis kategorije"></textarea>
+
+            <input type="submit" name="dodaj-novu-kategoriju" class="btn btn-success" value="Dodaj novu kategoriju"> 
+         </form>
+      </div>
+
+      <div class="col-md-6 col-sm-4 hidden-xs"></div>
+   </div>
+   
+   <div class="panel-section">
+      <h3>Pregled svih kategorija</h3>
+      <table class="table table-striped">
+         <thead>
+            <tr>
+               <th>Naziv kategorije</th>
+               <th>Potkategorija</th>
+               <th>Opis</th>
+               <th>Opcije</th>
+            </tr>
+         </thead>
+         <tbody>
+            {{#each model as |kategorija|}}
+            <tr>
+               <td>{{kategorija.naziv_kategorije}}</td>
+               <td>{{kategorija.potkategorija}}</td>
+               <td>{{kategorija.opis}}</td>
+               <td>
+                  <a href="#" data-id="{{kategorija.id}}" class="btn btn-default vidi-literaturu" title="Vidi literaturu">
+                     <span class="glyphicon glyphicon-align-justify"></span>
+                  </a>
+                  <a href="#" data-id="{{kategorija.id}}" class="btn btn-default izmjena-kategorije" title="Izmjena">
+                  <span class="glyphicon glyphicon-pencil"></span>
+                  </a>
+                  <a href="#" data-id="{{kategorija.id}}" class="btn btn-default brisanje-kategorije" title="Brisanje">
+                  <span class="glyphicon glyphicon-remove"></span>
+                  </a>
+               </td>
+            </tr>
+            {{/each}}
+         </tbody>
+      </table>
+   </div>
+</div>
+<script type="text/javascript" src="/assets/js/js-kategorije.js"></script>

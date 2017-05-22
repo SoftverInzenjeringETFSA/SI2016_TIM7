@@ -13,24 +13,24 @@ Router.map(function() {
   this.route('profil');
   this.route('faq');
   this.route('login');
-  this.route('registermember');
-  this.route('home');
-  this.route('homekorisnik');
-
-
+  this.route('register')
   this.route('iznajmljivanje');
-  this.route('addmoderator');
-  this.route('addadministrator');
+
   this.route('administracija', function() {
     this.route('clanovi');
     this.route('moderatori');
+    this.route('administratori');
+  });
+
+  this.route('moderator', function() {
+    this.route('clanovi');
+    this.route('kategorije');
+    this.route('literatura');
   });
 
   this.route('clan', function() {
-    this.route('literatura');
     this.route('pocetna');
-    this.route('faq');
-    this.route('odjava');
+    this.route('literatura');
   });
 });
 

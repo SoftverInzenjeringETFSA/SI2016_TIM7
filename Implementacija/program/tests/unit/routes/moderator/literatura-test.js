@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('route:clan/odjava', 'Unit | Route | clan/odjava', {
+moduleFor('route:moderator/literatura', 'Unit | Route | moderator/literatura', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });

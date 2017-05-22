@@ -10,5 +10,7 @@ public class ClanService {
 	@Autowired
 	ClanBibliotekeRepository clanRepository;
 	
-	
+	public void deleteMember(Integer id){
+		clanRepository.deleteMember(id);
+	}
 }

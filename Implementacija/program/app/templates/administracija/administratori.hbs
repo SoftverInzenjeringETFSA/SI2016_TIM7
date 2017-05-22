@@ -1,0 +1,49 @@
+{{admin-nav}}
+<div id="panel-holder" class="container">
+   <h3>Administratori</h3>
+   <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua.
+   </h5>
+
+   <div class="panel-section row">
+      <div class="col-md-6 col-sm-8 col-xs-12">
+         <h3>Dodaj novog administratora</h3>
+         <form method="POST" action="http://localhost:8080/administracija/administratori/dodaj">
+            <input required type="text" name="korisnickoIme" class="form-control" placeholder="Korisnicko ime">
+            <input required type="text" name="sigurnosniId" class="form-control" placeholder="Sigurnosni id">
+            <input required type="submit" name="dodaj-novog-administratora" class="btn btn-success" value="Dodaj novog administratora"> 
+         </form>
+      </div>
+      <div class="col-md-6 col-sm-4 hidden-xs"></div>
+   </div>
+
+   <div class="panel-section">
+      <h3>Pregled svih administratora</h3>
+      <table class="table table-striped">
+         <thead>
+            <tr>
+               <th>Ime</th>
+               <th>Prezime</th>
+               <th>Korisnicko ime</th>
+               <th>Opcije</th>
+            </tr>
+         </thead>
+         <tbody>
+            {{#each model as |admin|}}
+            <tr>
+               <td>{{admin.osoba.ime}}</td>
+               <td>{{admin.osoba.prezime}}</td>
+               <td>{{admin.osoba.korisnicko_ime}}</td>
+               <td>
+                  <a data-id="{{admin.id}}" class="btn btn-default brisanje-admina" title="Brisanje">
+                     <span class="glyphicon glyphicon-remove"></span>
+                  </a>
+               </td>
+            </tr>
+            {{/each}}
+         </tbody>
+      </table>
+   </div>
+</div>
+
+<script type="text/javascript" src="/assets/js/js-admin-admin.js"></script>
