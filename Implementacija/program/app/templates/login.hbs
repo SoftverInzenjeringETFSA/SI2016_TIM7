@@ -1,3 +1,5 @@
+
+<!--
 <div id="bg">
   <img src="/assets/images/librarybg.jpg" alt="slika biblioteke">
 </div>
@@ -16,4 +18,23 @@
     </form>
 
 </div>
+</div>
+
+-->
+
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+
+    <div class="login">
+          {{#each flashMessages.queue as |flash|}}
+        {{flash-message flash=flash}}
+      {{/each}}
+
+      <div class="panel panel-primary panel-login">
+        <div class="panel-body">
+          {{login-form authHandler=(action "loginNormal") identification=identification password=password}}
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

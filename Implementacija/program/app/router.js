@@ -36,6 +36,7 @@ Router.map(function() {
     this.route('faq');
     this.route('show', { path: '/:id' });
   });
+  this.route('authenticated-route');
 });
 
 export default Router;

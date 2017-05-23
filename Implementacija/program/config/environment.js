@@ -24,11 +24,8 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.host = 'http://localhost:8080';        
+    ENV.apiHost = "http://localhost:8080";
   }
 
   if (environment === 'test') {
@@ -46,5 +43,21 @@ module.exports = function(environment) {
 
   }
 
-  return ENV;
+   ENV['ember-simple-auth'] = {
+        authorizer: 'authorizer:token',
+        baseURL: '',
+        crossOriginWhitelist: ['http://localhost:8080']
+    };
+
+    ENV['ember-simple-auth-token'] = {
+        refreshAccessTokens: false,
+        authorizer: 'authorizer:token',
+        identificationField: 'korisnicko_ime',
+        serverTokenEndpoint: ''
+    };
+
+    ENV['ember-simple-auth'].baseURL = ENV.apiHost;
+    ENV['ember-simple-auth-token'].serverTokenEndpoint = `${ENV.apiHost}/login`;
+
+    return ENV;
 };
