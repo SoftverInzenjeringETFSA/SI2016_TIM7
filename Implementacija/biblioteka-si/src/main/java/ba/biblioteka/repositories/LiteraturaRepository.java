@@ -1,12 +1,10 @@
 package ba.biblioteka.repositories;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ba.biblioteka.models.ClanBiblioteke;
 import ba.biblioteka.models.Literatura;
 
-public interface LiteraturaRepository extends PagingAndSortingRepository<Literatura, Integer> {
+public interface LiteraturaRepository extends Repository<Literatura, Integer> {
 	long count();
 	boolean exists(Integer primaryKey);
 	public List<Literatura> findAll();	
@@ -45,13 +43,4 @@ public interface LiteraturaRepository extends PagingAndSortingRepository<Literat
 	
 	@Query(value = "select * from literatura where naziv_literature like %:query%", nativeQuery = true)
 	public List<Literatura> searchLiterature(@Param("query") String query);
-
-
-	@Query("select l from Literatura l where id=?")
-	public Literatura findById(Integer id);
-	
-	@Query("select l from Literatura l where naziv_literature=?")
-	public ArrayList<Literatura> findByNaziv_literature(String id);
-
 }
-

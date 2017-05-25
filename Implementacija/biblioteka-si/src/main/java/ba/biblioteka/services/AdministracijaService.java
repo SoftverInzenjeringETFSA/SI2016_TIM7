@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import ba.biblioteka.models.Administrator;
@@ -56,7 +58,10 @@ public class AdministracijaService {
 	}
 	
 	public void addNewOsoba(String korisnickoIme, String ime, String prezime, String sifra){
-		this.osobaRepository.addNewOsoba(korisnickoIme, ime, prezime, sifra);
+		PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		String hashedPassword = passwordEncoder.encode(sifra);
+		
+		this.osobaRepository.addNewOsoba(korisnickoIme, ime, prezime, hashedPassword);
 	}
 	
 	public List<ClanBiblioteke> findAllMembers() {

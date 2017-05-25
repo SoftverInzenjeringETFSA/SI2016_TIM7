@@ -1,7 +1,5 @@
-{{header-main}}
 {{navbar-korisnik}}
 {{log model.literatura}}
-
 <div class="front-page">
 	<div class="container">
 		<div class="row">
@@ -19,7 +17,7 @@
 
 						{{#each model as |model|}}
 						<tr>
-							<td>{{model.naziv_literature}}</td>
+							<td>{{#link-to "clan.show" model.id}} {{model.naziv_literature}} {{/link-to}}</td>
 							<td>{{model.autor_literature}}</td>
 							<td>{{model.kategorija.naziv_kategorije}}</td>
 							<td>{{model.kategorija.potkategorija}}</td>

@@ -23,6 +23,19 @@ module.exports = function(environment) {
     }
   };
 
+  ENV['ember-simple-auth'] = {
+        authorizer: 'authorizer:token',
+        baseURL: '',
+        crossOriginWhitelist: ['http://localhost:8080']
+    };
+
+    ENV['ember-simple-auth-token'] = {
+        refreshAccessTokens: false,
+        authorizer: 'authorizer:token',
+        identificationField: 'username',
+        serverTokenEndpoint: ''
+    };
+
   if (environment === 'development') {
     ENV.host = 'http://localhost:8080';        
     ENV.apiHost = "http://localhost:8080";
@@ -42,19 +55,6 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
-
-   ENV['ember-simple-auth'] = {
-        authorizer: 'authorizer:token',
-        baseURL: '',
-        crossOriginWhitelist: ['http://localhost:8080']
-    };
-
-    ENV['ember-simple-auth-token'] = {
-        refreshAccessTokens: false,
-        authorizer: 'authorizer:token',
-        identificationField: 'korisnicko_ime',
-        serverTokenEndpoint: ''
-    };
 
     ENV['ember-simple-auth'].baseURL = ENV.apiHost;
     ENV['ember-simple-auth-token'].serverTokenEndpoint = `${ENV.apiHost}/login`;

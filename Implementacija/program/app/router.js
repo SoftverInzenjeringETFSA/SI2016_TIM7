@@ -11,7 +11,7 @@ Router.map(function() {
   this.route('pretraga');
   this.route('kategorije');
   this.route('profil');
-  this.route('login');
+  this.route('login', {path : '/login'});
   this.route('register')
   this.route('iznajmljivanje');
 
@@ -20,16 +20,18 @@ Router.map(function() {
     this.route('moderatori');
     this.route('administratori');
     this.route('osoba');
+    this.route('pocetna');
   });
 
   this.route('moderator', function() {
     this.route('clanovi');
     this.route('kategorije');
     this.route('literatura');
-    this.route('osoba');
+    this.route('pocetna');
   });
 
   this.route('clan', function() {
+    this.route('pocetna');
     this.route('literatura');
     this.route('faq');
     this.route('show', { path: '/:id' });

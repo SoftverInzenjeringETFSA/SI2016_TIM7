@@ -15,6 +15,11 @@ public interface OsobaRepository extends Repository<Osoba, Integer> {
 	boolean exists(Integer primaryKey);
 	public List<Osoba> findAll();
 	
+	//public List<Osoba> findBykorisnicko_imeContaining(String korisnicko_ime);
+	
+	@Query("select o from Osoba o where o.korisnicko_ime = :korisnicko_ime")
+	public Osoba findByUsername(@Param("korisnicko_ime") String korisnicko_ime);
+	
 	@Transactional
 	@Modifying
 	@Query("delete from Osoba where id = :id")
@@ -27,5 +32,5 @@ public interface OsobaRepository extends Repository<Osoba, Integer> {
 	public void addNewOsoba(@Param("korisnicko_ime") String korisnickoIme, 
 						  @Param("ime") String ime, 
 						  @Param("prezime") String prezime, 
-						@Param("sifra") String sifra);
+						@Param("sifra") String sifra);	
 }

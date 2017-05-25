@@ -14,7 +14,7 @@ import ba.biblioteka.models.ClanBiblioteke;
 public interface ClanBibliotekeRepository extends Repository<ClanBiblioteke, Integer> {
 	long count();
 	boolean exists(Integer primaryKey);
-	public List<ClanBiblioteke> findAll();
+	List<ClanBiblioteke> findAll();
 	ClanBiblioteke findOne(Integer id);
 	
 	@Transactional
