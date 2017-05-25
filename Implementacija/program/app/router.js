@@ -20,18 +20,16 @@ Router.map(function() {
     this.route('moderatori');
     this.route('administratori');
     this.route('osoba');
-    this.route('pocetna');
   });
 
   this.route('moderator', function() {
     this.route('clanovi');
     this.route('kategorije');
     this.route('literatura');
-    this.route('pocetna');
+    this.route('osoba');
   });
 
   this.route('clan', function() {
-    this.route('pocetna');
     this.route('literatura');
     this.route('faq');
     this.route('show', { path: '/:id' });
