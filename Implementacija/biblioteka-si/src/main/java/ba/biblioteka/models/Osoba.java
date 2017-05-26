@@ -6,12 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
@@ -28,6 +23,8 @@ public class Osoba implements Serializable {
     private String ime;
     private String prezime;
     private String sifra;
+    
+    private String tip;
    
     public Osoba() {
     	
@@ -73,9 +70,13 @@ public class Osoba implements Serializable {
 		this.sifra = sifra;
 	}
 
-	@Override
-    public String toString() {
-        return String.format("Osoba[id=%d, Korisnicko ime='%s', Sifra='%s']", id, korisnicko_ime, sifra);
-    }
+	public String getTip() {
+		return tip;
+	}
+
+	public void setTip(String tip) {
+		this.tip = tip;
+	}
+
 }
 

@@ -15,6 +15,7 @@ import ba.biblioteka.repositories.KategorijaRepository;
 import ba.biblioteka.repositories.LiteraturaRepository;
 
 
+
 @Service
 public class UpravljanjeLiteraturomService {
 	@Autowired
@@ -66,4 +67,23 @@ public class UpravljanjeLiteraturomService {
 	public Literatura findById(Integer id){
 		return this.literaturaRepository.findOne(id);
 	}
+	
+	 public Boolean updateLiteratura(Literatura literatura, int id) {
+	    	
+	    	if (literaturaRepository.findById(id).equals(null)) {    	
+	    		return false;
+	    	}
+	    	else 
+	    	{ 
+	    		Literatura lit = literaturaRepository.findById(id);
+	    		lit.setNaziv_literature(literatura.getNaziv_literature());
+	    		if (literaturaRepository.findByNaziv_literature(literatura.getNaziv_literature()).isEmpty())
+	    		{
+	    			literaturaRepository.save(lit);
+	    			return true;
+	    		}
+	        	return false;
+	    	}
+		}
+
 }

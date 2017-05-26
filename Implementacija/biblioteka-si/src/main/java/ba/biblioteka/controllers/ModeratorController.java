@@ -7,8 +7,11 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,20 +38,6 @@ public class ModeratorController {
 		return this.administracijaService.findAllMembers();
 	}
 	
-	/*@RequestMapping(value = "/clanovi/dodaj", method = RequestMethod.POST)
-	public void addNewMember(@RequestParam("broj_clanske_karte") String brojClanskeKarte, 
-			@RequestParam("datum_rodjenja") String datumRodjenja,
-			@RequestParam("adresa") String adresa,
-			@RequestParam("mjesto_stanovanja") String mjestoStanovanja,
-			@RequestParam("broj_telefona") String brojTelefona,
-			@RequestParam("ustanova") String ustanova,
-			@RequestParam("email") String email,
-			@RequestParam("korisnicko-ime") Integer id_osobe) throws ParseException {
-		
-		DateFormat df = new SimpleDateFormat("YYYY-MM-DD");
-		this.administracijaService.addNewMember(brojClanskeKarte, df.parse(datumRodjenja), adresa, mjestoStanovanja, brojTelefona, ustanova, email, id_osobe);
-	}
-	*/
 	@RequestMapping("/kategorije")
 	public List<Kategorija> findAllCategories(){
 		return this.literaturaService.findAllCategories();
@@ -83,6 +72,12 @@ public class ModeratorController {
 		this.literaturaService.addNewLiterature(autor, naziv, izdavac, godina, brojStrana, komentar, mPreuzimanja, df.parse(datumUnosa), kategorijaId);
 	}
 	
+	/*
+	@RequestMapping(value = "literatura/update", method = RequestMethod.POST)
+    public ResponseEntity update(@RequestBody Literatura literatura, @RequestParam(name="id")int id) {
+	return ResponseEntity.status(HttpStatus.OK).body(literaturaService.updateLiteratura(literatura, id));
+    }*/
+	
 	@RequestMapping(value = "/clanovi/dodaj", method = RequestMethod.POST)
 	public void addNewMember(@RequestParam("broj_clanske_karte") String brojClanskeKarte, 
 			@RequestParam("datum_rodjenja") String datumRodjenja,
@@ -98,8 +93,26 @@ public class ModeratorController {
 		this.administracijaService.addNewMember(brojClanskeKarte, df.parse(datumRodjenja), adresa, mjestoStanovanja, brojTelefona, ustanova, email, idOsobe);
 	}
 	
+	@RequestMapping(value = "/osoba/dodaj", method = RequestMethod.POST)
+	public void addNewOsoba(@RequestParam("korisnicko-ime") String korisnicko_ime, 
+						  @RequestParam("ime") String ime,
+						  @RequestParam("prezime") String prezime,
+						  @RequestParam("sifra") String sifra,
+						  @RequestParam("tip") String tip){
+		
+		//TODO: Add more validation
+		//if(korisnickoIme != null && sigurnosniId != null && adresa != null && grad != null && email != null)
+			this.administracijaService.addNewOsoba(korisnicko_ime, ime, prezime, sifra, tip);
+	}
+	
 	@RequestMapping(value = "literatura/kategorija/{id}", method = RequestMethod.GET)
 	public List<Literatura> findAllLiteratureByCategory(@PathVariable("id") Integer id) {
 		return this.literaturaService.findAllLiteratureByCategory(id);
 	}
+	
+	@RequestMapping(value = "literatura/update/{id}", method = RequestMethod.POST)
+	public ResponseEntity update(@RequestBody Literatura literatura, @RequestParam(name="id")int id) {
+		return ResponseEntity.status(HttpStatus.OK).body(literaturaService.updateLiteratura(literatura, id));
+		}
+	
 }

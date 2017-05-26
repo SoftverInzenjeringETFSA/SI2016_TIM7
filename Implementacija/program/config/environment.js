@@ -18,27 +18,31 @@ module.exports = function(environment) {
     },
 
     APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
+    
+      
+      apiUri: 'http://localhost:8080'
     }
   };
 
   ENV['ember-simple-auth'] = {
-        authorizer: 'authorizer:token',
-        baseURL: '',
-        crossOriginWhitelist: ['http://localhost:8080']
-    };
+    authorizer: 'authorizer:token',
+    baseURL: ''
+  };
 
-    ENV['ember-simple-auth-token'] = {
-        refreshAccessTokens: false,
-        authorizer: 'authorizer:token',
-        identificationField: 'username',
-        serverTokenEndpoint: ''
-    };
+  ENV['ember-simple-auth-token'] = {
+    refreshAccessTokens: false,
+    authorizer: 'authorizer:token',
+    identificationField: 'username',
+    serverTokenEndpoint: ''
+  };
 
   if (environment === 'development') {
-    ENV.host = 'http://localhost:8080';        
-    ENV.apiHost = "http://localhost:8080";
+    // ENV.APP.LOG_RESOLVER = true;
+    ENV.APP.LOG_ACTIVE_GENERATION = true;
+    ENV.APP.LOG_TRANSITIONS = true;
+    ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
+    ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.apiHost = 'http://localhost:8080';
   }
 
   if (environment === 'test') {
@@ -53,11 +57,11 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.apiHost = "http://localhost:8080";
+    ENV.apiVersion = "1";
 
-  }
-
-    ENV['ember-simple-auth'].baseURL = ENV.apiHost;
-    ENV['ember-simple-auth-token'].serverTokenEndpoint = `${ENV.apiHost}/login`;
-
-    return ENV;
+ }
+  ENV['ember-simple-auth'].baseURL = ENV.apiHost;
+  ENV['ember-simple-auth-token'].serverTokenEndpoint = `${ENV.apiHost}/login`;
+  return ENV;
 };

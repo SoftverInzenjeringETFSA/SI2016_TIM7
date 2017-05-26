@@ -9,13 +9,11 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import ba.biblioteka.models.Administrator;
-import ba.biblioteka.models.ClanBiblioteke;
 
 public interface AdministratorRepository extends Repository<Administrator, Integer> {
 	long count();
 	boolean exists(Integer primaryKey);
-	List<Administrator> findAll();
-	Administrator findOne(Integer id);
+	public List<Administrator> findAll();
 	
 	@Transactional
 	@Modifying

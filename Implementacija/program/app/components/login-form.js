@@ -1,36 +1,37 @@
 import Ember from 'ember';
-import {
-    validator,
-    buildValidations
-}
-from 'ember-cp-validations';
 
-var Validations = buildValidations({
-    identification: [
-        validator('presence', {
-            presence: true
-        })
-    ],
-    password: [
-        validator('presence', {
-            presence: true,
-        }),
-        validator('length', {
-            min: 8
-        }),
-    ]
-}, {
-    debounce: 500
-});
+export default Ember.Component.extend({
+    store: Ember.inject.service(),
+    session: Ember.inject.service(),
+    isToSAccepted: false,
 
-export default Ember.Component.extend(Validations, {
-    init: function() {
-        this._super();
-        this.empty();
-    },
+    model: {},
+    errorMessage: '',
 
-    empty: function() {
-        this.set('identification', '');
-        this.set('password', '');
+
+    actions: {
+     
+       login() {
+            this.get('session').authenticate('authenticator:application', this.model, (data) => {
+                    console.log(data);
+                   Ember.set(this, 'errorMessage', '');
+                     this.set('model.korisnicko_ime', '');
+                     this.set('model.sifra', '');
+                     this.set('model.id', '');
+                    
+                    this.get('router').transitionTo('index');
+                })
+                .catch(reason => {
+                    Ember.set(this, 'errorMessage', JSON.parse(reason.responseText).errorMessage);
+                    this.set('authenticationError', this.errorMessage || reason);
+                });
+        },
+
+        logout()
+        {
+              this.get('session').invalidate();
+              this.get('router').transitionTo('index');
+
+        }
     }
 });

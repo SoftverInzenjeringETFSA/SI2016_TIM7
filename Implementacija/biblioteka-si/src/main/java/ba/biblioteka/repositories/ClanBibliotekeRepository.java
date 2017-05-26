@@ -14,7 +14,7 @@ import ba.biblioteka.models.ClanBiblioteke;
 public interface ClanBibliotekeRepository extends Repository<ClanBiblioteke, Integer> {
 	long count();
 	boolean exists(Integer primaryKey);
-	List<ClanBiblioteke> findAll();
+	public List<ClanBiblioteke> findAll();
 	ClanBiblioteke findOne(Integer id);
 	
 	@Transactional
@@ -43,22 +43,5 @@ public interface ClanBibliotekeRepository extends Repository<ClanBiblioteke, Int
 							 @Param("ustanova") String ustanova,
 							 @Param("email") String email,
 							 @Param("id_osobe") Integer id_osobe);
-							 
-	
-/*	
-	@Transactional
-	@Modifying
-	@Query(value="insert into clanbiblioteke (autor_literature, naziv_literature, izdavac, godina_izdavanja, broj_strana, komentar, mogucnost_preuzimanja, datum_unosa, kategorija) "
-			+ "values (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9)", nativeQuery = true)
-	public void addNewMember(String autor, 
-			String naziv,
-			String izdavac,
-			Integer godina, 
-			Integer brojStrana,
-			String komentar,
-			boolean mPreuzimanja,
-			Date datumUnosa,
-			Integer kategorijaId);
-			*/
 	
 }

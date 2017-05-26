@@ -1,43 +1,33 @@
 import Ember from 'ember';
+import osoba from '../models/osoba';
 
 export default Ember.Controller.extend({
-    flashMessages: Ember.inject.service(),
-    session: Ember.inject.service('session'),
-    collapsedBool: false,
-    collapsedStr: "collapse navbar-collapse",
+    /*userService: Ember.inject.service(),
+    isToSAccepted: Ember.computed.not('isToSCheckboxChecked'),
+     store: Ember.inject.service(),
+    session: Ember.inject.service(),
+    model: {},
 
-    authenticate: function(credentials) {
-        var authenticator = 'authenticator:jwt';
-
-        return this.get('session').authenticate(authenticator, credentials);
-    },
-
+    
+    
     actions: {
-        login: function(credentials, doRedirect) {
-            const flashMessages = Ember.get(this, 'flashMessages');
-            var self = this;
 
-            this.authenticate(credentials).then(function() {
-                if (doRedirect) {
-                    self.transitionToRoute('/');
-                }
-                flashMessages.success("Uspješno prijavljen!");
-            }.bind(doRedirect), function() {
-                flashMessages.danger("Pogrešni podaci.");
-            });
-        },
+        login: function() {
 
-        loginNormal: function() {
-            var credentials = this.getProperties('identification', 'password');
-            this.send('login', credentials, true);
-        },
+            this.get('session').authenticate('authenticator:application', this.model, (data) => {
+                    console.log(data);
+                     this.set('model.korisnicko_ime', '');
+                     this.set('model.sifra', '');
+                     
+                     this.transitionToRoute('administracija');
+                })
+                .catch(reason => {
+                    Ember.set(this, 'errorMessage', JSON.parse(reason.responseText).errorMessage);
+                    this.set('authenticationError', this.errorMessage || reason);
+                });
+          }
 
-        loginWithoutRedirect: function(credentials) {
-            this.send('login', credentials, false);
-        },
-
-        logout(){
-            this.get('session').invalidate();
-        }
-    }
+       }
+    */
+    
 });

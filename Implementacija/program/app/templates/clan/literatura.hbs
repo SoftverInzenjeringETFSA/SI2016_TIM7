@@ -1,6 +1,4 @@
 {{navbar-korisnik}}
-{{log model.literatura}}
-
 <div class="front-page">
 	<div class="container">
 		<div class="row">
@@ -15,17 +13,15 @@
 							<th>Potkategorija</th>
 						</tr>
 					</thead>
-
-						{{#each model.literatura as |literatura|}}
-						<tr>
-							<td> {{literatura.naziv_literature}} </td>
-							<td>{{literatura.autor_literature}}</td>
-							<td>{{literatura.kategorija.naziv_kategorije}}</td>
-							<td>{{literatura.kategorija.potkategorija}}</td>
-						</tr>
-						{{/each}}						
-
-
+					{{#each model as |literatura|}}
+					<tr>
+						<td>{{literatura.naziv_literature}}</td>
+						<td>{{literatura.autor_literature}}</td>
+						<td>{{literatura.izdavac}}</td>
+						<td>{{literatura.kategorija.naziv_kategorije}}</td>
+						<td>{{literatura.kategorija.potkategorija}}</td>
+					</tr>
+					{{/each}}
 					
 				</table>
 			</div>

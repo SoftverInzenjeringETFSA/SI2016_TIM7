@@ -1,11 +1,30 @@
-<form class="col-md-12" {{action (action authHandler) on='submit'}}>                                            
-  <div class="form-group">
-  	{{validated-input type="text" model=this placeholder="Username" valuePath="identification"}}
-  </div>
-                        
-  <div class="form-group">
-  	{{validated-input type="password" model=this placeholder="Password" valuePath="password"}}
-  </div>                        
+<div class="container log">
+    <div class="row">
 
-  <button type="submit" class="btn btn-primary">Login</button>
-</form>
+    <div class="col-sm-10 col-md-8 col-md-offset-4">
+
+        {{#if session.isAuthenticated}}
+
+        	<button type="button" class="btn btn-info" {{action "logout"}}>Odjava</button>
+
+        {{else}}
+        <div class="form">
+        <i class="fa fa-user" aria-hidden="true"></i>
+                <div class="login-input">
+                    {{input placeholder="korisnicko_ime" value=model.korisnicko_ime}}
+                    <br><br>
+                    {{input type="password" placeholder="sifra" value=model.sifra}}
+                </div>
+
+                <br><br>
+
+                <div class="login-input">
+                    <button type="button" class="btn btn-info" disabled={{ isToSAccepted }} {{action "login"}}>PRIJAVA</button>
+                    <h4 style="color:red">{{errorMessage}}</h4>
+                </div>
+        </div>
+        {{/if}} 
+
+       </div> 
+    </div>
+</div>

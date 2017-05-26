@@ -1,40 +1,12 @@
-
-<!--
-<div id="bg">
-  <img src="/assets/images/librarybg.jpg" alt="slika biblioteke">
-</div>
-
-<div id="formaBG">
-  <div class="module">
-
-  <div style="text-align: center">
- <img src="http://i.imgur.com/Fk1Urva.png" alt="" class="icon"/>
-    </div>
-
-    <form method="POST" action="">
-      <input type="text" placeholder="Korisnicko Ime" class="textbox" />
-      <input type="password" placeholder="Sifra" class="textbox" />
-      <input type="button" value="Login" id="next-step-button" class="button">
-    </form>
-
-</div>
-</div>
-
--->
-
-<div class="row">
-  <div class="col-md-4 col-md-offset-4">
-
-    <div class="login">
-        {{#each flashMessages.queue as |flash|}}
-        {{flash-message flash=flash}}
-      {{/each}}
-
-      <div class="panel panel-primary panel-login">
-        <div class="panel-body">
-          {{login-form authHandler=(action "loginNormal") identification=identification password=password}}
-        </div>
-      </div>
+<div id="login">
+  <div class="container">
+    <div class="row">
+      {{#if session.isAuthenticated}}
+        <h2>Prijavljeni ste</h2>
+      {{else}}
+        <h2 style="color:red"> {{registracijamsg}} </h2>
+      {{/if}}
     </div>
   </div>
+  {{login-form action = 'onLogin'}}
 </div>

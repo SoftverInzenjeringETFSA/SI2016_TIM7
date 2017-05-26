@@ -319,26 +319,7 @@ margin-right: 20px;
 .form-control {
   margin: 10px 0;
 }
-/*.info-block {
 
-    text-transform: uppercase;
-    color: #002b80;
-    font-weight: 600;
-    font-style: normal;
-    border: 1px solid #d5d5d5;
-    font-size: 20px;
-    padding: 0px 100px;
-    padding-bottom: 0px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.info-block a {
-  margin-top: 0px!important;
-  color: #0188ba;
-  padding: 10px;
-}
-*/
 
 .second {
     background-color: #fefefe;
@@ -476,4 +457,72 @@ nav a:hover {
 
 a {
   color: #0188ba!important;
+}
+
+
+/* LOGIN - FORM */
+
+#login {
+  padding: 15-0px 0;
+  background-image: url(../assets/images/librarybg.jpg);
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover;
+  height: 100vh!important;
+  background-position: center;
+  background-attachment: fixed;
+  text-align: center;
+  z-index: 15%;
+}
+
+.log {
+  text-align: center!important;
+
+}
+.log button {
+  height:50px;
+  width:100%;
+  border-radius:3px;
+  border:rgba(0,0,0,.3) 0px solid;
+  box-sizing:border-box;
+  padding:10px;
+  background:#90c843;
+  color:#FFF;
+  font-weight:bold;
+  font-size: 12pt;
+  transition:background .4s;
+  cursor:pointer;
+
+
+}
+
+.log .login-input input {
+
+  height:50px;
+  width:100%;
+  text-align: left;
+  border-radius:3px;
+  border:rgba(0,0,0,.3) 2px solid;
+  box-sizing:border-box;
+  padding:20px;
+  margin-bottom:20px;
+}
+
+.log .form {
+  border: 1px solid #fff;
+  width: 70%!important;
+  height: auto!important;
+  background-color: #fff;
+  padding: 50px;
+  margin-top: 70px;
+}
+
+
+#login h2 {
+  color: #fff!important;
+}
+
+
+.log .form i {
+  font-size: 60px;
+  margin-bottom: 30px;
 }

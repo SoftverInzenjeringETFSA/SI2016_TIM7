@@ -26,6 +26,31 @@
       </div>
       <div class="col-md-6 col-sm-4 hidden-xs"></div>
    </div>
+<!--
+   <div class="panel-section row">
+      <div class="col-md-6 col-sm-8 col-xs-12">
+       <h3>Izmijeni literaturu</h3>
+       <form method="POST" action="http://localhost:8080/moderator/literatura/update">
+        {{#each model as |literatura index|}}
+        <div class="form-group text-center">
+           {{input type="text" class="form-control" placeholder="Naziv literature" value=literatura.naziv_literature}}
+         </div>
+
+         <div class="btn-group btn-group-justified text-center" role="group">
+            <div class="btn-group" role="group">
+               <input type="submit" name="dodaj-novu-osobu" class="btn btn-success" value="Izmjena"><br><br>
+            </div>
+         </div>
+         {{/each}}
+      </form>
+   </div>
+      <div class="col-md-6 col-sm-4 hidden-xs"></div>
+   </div>
+
+  -->
+<hr>
+
+
 
 	<div class="panel-section">
 		<h3>Pregled literature</h3>
@@ -34,7 +59,7 @@
 		<div class="row">
 			<div class="form-group col-md-6">
 				<label for="filter-kategorija">Izabrana kategorija:</label>
-				<select id="filter-kategorija" name="filter-kategorija" class="form-control select-kategorija">
+				<select id="filter-kategorija" name="naziv_literature" class="form-control select-kategorija">
 					<option value="0">Sve</option>
 				</select>
 			</div>
@@ -66,8 +91,8 @@
 					  <a data-id="{{literatura.id}}" class="btn btn-default download-literature" title="Mogucnost preuzimanja">
 			            <span class="glyphicon glyphicon-download-alt"></span>
 			          </a>
-			          <a data-id="{{literatura.id}}" class="btn btn-default izmjena-literature" title="Izmjena">
-			            <span class="glyphicon glyphicon-pencil"></span>
+			         <a data-id="{{literatura.id}}" class="btn btn-default izmjena-literature" title="Izmjena">
+			           <span class="glyphicon glyphicon-pencil"></span>
 			          </a>
 			          <a data-id="{{literatura.id}}" class="btn btn-default brisanje-literature" title="Brisanje">
 			            <span class="glyphicon glyphicon-remove"></span>

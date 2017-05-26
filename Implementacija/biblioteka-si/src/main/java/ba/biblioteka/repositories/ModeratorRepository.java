@@ -13,8 +13,7 @@ import ba.biblioteka.models.Moderator;
 public interface ModeratorRepository extends Repository<Moderator, Integer> {
 	long count();
 	boolean exists(Integer primaryKey);
-	List<Moderator> findAll();
-	Moderator findOne(Integer id);
+	public List<Moderator> findAll();
 	
 	@Transactional
 	@Modifying
