@@ -31,10 +31,11 @@ USE  tim7;
 DROP TABLE IF EXISTS `osoba`;
 CREATE TABLE `osoba` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `korisnicko_ime` varchar(15) NOT NULL,
-  `ime` varchar(15) NOT NULL,
+  `korisnicko_ime` varchar(50) NOT NULL,
+  `ime` varchar(50) NOT NULL,
   `prezime` varchar(20) NOT NULL,
-  `sifra` varchar(8) NOT NULL,
+  `sifra` varchar(50) NOT NULL,
+  `tip` varchar(50) NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -67,9 +68,9 @@ DROP TABLE IF EXISTS `moderator`;
 CREATE TABLE `moderator` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `sigurnosni_id` int(10) NOT NULL,
-  `adresa` varchar(20) NOT NULL,
-  `grad` varchar(20) NOT NULL,
-  `email` varchar(20) NOT NULL,
+  `adresa` varchar(50) NOT NULL,
+  `grad` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `id_osobe` int(10) NOT NULL,
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -84,13 +85,13 @@ PRIMARY KEY (`id`)
 DROP TABLE IF EXISTS `clanbiblioteke`;
 CREATE TABLE `clanbiblioteke` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `broj_clanske_karte` varchar(10) NOT NULL,
+  `broj_clanske_karte` varchar(50) NOT NULL,
   `datum_rodjenja` date NOT NULL,
-  `adresa` varchar(20) NOT NULL,
-  `mjesto_stanovanja` varchar(10) NOT NULL,
-  `broj_telefona` varchar(30) NOT NULL,
-  `ustanova` varchar(15) NOT NULL,
-  `email` varchar(20) NOT NULL,
+  `adresa` varchar(50) NOT NULL,
+  `mjesto_stanovanja` varchar(50) NOT NULL,
+  `broj_telefona` varchar(50) NOT NULL,
+  `ustanova` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `id_osobe` int(10) NOT NULL,
    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -107,8 +108,8 @@ CREATE TABLE `clanbiblioteke` (
 DROP TABLE IF EXISTS `kategorija`;
 CREATE TABLE `kategorija` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `naziv_kategorije` varchar(25) NOT NULL,
-  `potkategorija` varchar(25) NOT NULL,
+  `naziv_kategorije` varchar(50) NOT NULL,
+  `potkategorija` varchar(50) NOT NULL,
   `opis` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -130,9 +131,9 @@ CREATE TABLE `literatura` (
   `id` int(10) NOT NULL,
   `autor_literature` varchar(50) NOT NULL,
   `naziv_literature` varchar(50) NOT NULL,
-  `izdavac` varchar(30) NOT NULL,
+  `izdavac` varchar(50) NOT NULL,
   `godina_izdavanja` int(11) NOT NULL,
-  `broj_strana` int(4) NOT NULL,
+  `broj_strana` int(10) NOT NULL,
   `komentar` varchar(255) DEFAULT NULL,
   `mogucnost_preuzimanja` tinyint(1) NOT NULL,
   `datum_iznajmljivanja` date DEFAULT NULL,
@@ -178,7 +179,7 @@ ALTER TABLE `literatura`
 ALTER TABLE `literatura`
   ADD CONSTRAINT `FKAdmin` FOREIGN KEY (`iznajmio_administrator`) REFERENCES `administrator` (`id`),
   ADD CONSTRAINT `FKClan` FOREIGN KEY (`unajmio_clan`) REFERENCES `clanbiblioteke` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FKLiteraturaKategorija` FOREIGN KEY (`kategorija`) REFERENCES `kategorija` (`id`),
+  ADD CONSTRAINT `FKLiteraturaKategorija` FOREIGN KEY (`kategorija`) REFERENCES `kategorija` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `FKModerator` FOREIGN KEY (`iznajmio_moderator`) REFERENCES `moderator` (`id`);
 
 
@@ -186,18 +187,18 @@ ALTER TABLE `literatura`
 ALTER TABLE `administrator`
   ADD KEY `FKAdminOsoba` (`id_osobe`);
 ALTER TABLE `administrator`
-  ADD CONSTRAINT `FKAdminOsoba` FOREIGN KEY (`id_osobe`) REFERENCES `osoba` (`id`);
+  ADD CONSTRAINT `FKAdminOsoba` FOREIGN KEY (`id_osobe`) REFERENCES `osoba` (`id`) ON DELETE CASCADE;
 
 
 ALTER TABLE `moderator`
   ADD KEY `FKModOsoba` (`id_osobe`);
 ALTER TABLE `moderator`
-  ADD CONSTRAINT `FKModOsoba` FOREIGN KEY (`id_osobe`) REFERENCES `osoba` (`id`);
+  ADD CONSTRAINT `FKModOsoba` FOREIGN KEY (`id_osobe`) REFERENCES `osoba` (`id`) ON DELETE CASCADE;
 
 ALTER TABLE `clanbiblioteke`
   ADD KEY `FKClanOsoba` (`id_osobe`);
 ALTER TABLE `clanbiblioteke`
-ADD CONSTRAINT `FKClanOsoba` FOREIGN KEY (`id_osobe`) REFERENCES `osoba` (`id`);
+ADD CONSTRAINT `FKClanOsoba` FOREIGN KEY (`id_osobe`) REFERENCES `osoba` (`id`) ON DELETE CASCADE;
 
 
 --
@@ -222,4 +223,21 @@ CREATE TABLE `arhiv` (
   CONSTRAINT `FKArhivLiteratura` FOREIGN KEY (`id_literature`) REFERENCES `literatura` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+
+
+INSERT INTO `osoba` (`id`, `korisnicko_ime`, `ime`, `prezime`, `sifra`, `tip`) VALUES
+(7, 'admin', 'Dzana', 'Hanic', 'admin', 'Administrator'),
+(9, 'mod_name', 'Imenko', 'Prezimenko', 'imenko2', 'Moderator'),
+(10, 'janeuser', 'Jane', 'Doe', 'jane321', 'Clan');
+
+INSERT INTO `moderator` (`id`, `sigurnosni_id`, `adresa`, `grad`, `email`, `id_osobe`) VALUES
+(3, 39785, 'ABS', 'Sarajevo', 'imenko@gmail.com', 9);
+
+
+INSERT INTO `clanbiblioteke` (`id`, `broj_clanske_karte`, `datum_rodjenja`, `adresa`, `mjesto_stanovanja`, `broj_telefona`, `ustanova`, `email`, `id_osobe`) VALUES
+(6, '5251', '2017-05-03', 'Gradacacka', 'Sarajevo', '06211122', 'Gradska biblioteka', 'jane@gmail.com', 10);
+
+INSERT INTO `administrator` (`id`, `sigurnosni_id`, `id_osobe`) VALUES
+(3, 2712995, 7);
 
