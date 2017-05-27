@@ -8,12 +8,10 @@ export default Ember.Component.extend({
     model: {},
     errorMessage: '',
 
-
     actions: {
-     
        login() {
             this.get('session').authenticate('authenticator:application', this.model, (data) => {
-                    console.log(data);
+                  //console.log(data);
                    Ember.set(this, 'errorMessage', '');
                      this.set('model.korisnicko_ime', '');
                      this.set('model.sifra', '');
@@ -31,7 +29,6 @@ export default Ember.Component.extend({
         {
               this.get('session').invalidate();
               this.get('router').transitionTo('index');
-
         }
     }
 });

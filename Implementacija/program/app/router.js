@@ -34,6 +34,8 @@ Router.map(function() {
     this.route('faq');
     this.route('show', { path: '/:id' });
   });
+  this.route('unauthorized');
+  this.route('logout');
 });
 
 export default Router;

@@ -3,11 +3,11 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 	userService: Ember.inject.service(),
 
-  model: function() {
-    return Ember.RSVP.hash({
-      users: this.get('userService').all()
-    });
-  },
+	  model: function() {
+	    return Ember.RSVP.hash({
+	      users: this.get('userService').all()
+	    });
+	  },
 	session: Ember.inject.service(),
 
 	beforeModel(transition) {
