@@ -51,11 +51,9 @@ public class OsobaService {
 			jsonObj = new JSONObject(jsonString.toString());
 		} catch (JSONException e) {
 			
-			System.out.print("Well fuck 2");
 			e.printStackTrace();
 		}
     	try {
-    		System.out.print("Yaya fuck");
 			String korisnicko_ime = jsonObj.getString("korisnicko_ime");
 			String sifra = jsonObj.getString("sifra");
 			dbActions db = new dbActions();
@@ -69,7 +67,6 @@ public class OsobaService {
 	        
 			 
 		} catch (JSONException e) {
-			System.out.print("Well fuck");
 			e.printStackTrace();
 		}
     	

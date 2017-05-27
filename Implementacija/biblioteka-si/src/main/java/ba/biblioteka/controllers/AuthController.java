@@ -54,7 +54,7 @@ public class AuthController {
 	    	catch (ServiceException e) {
 	    		return ResponseEntity
 	    				.status(HttpStatus.BAD_REQUEST)
-	                    .body(new LoginDataResponse("Incorrect username or password."));
+	                    .body(new LoginDataResponse("Neispravno korisnicko ime ili sifra."));
 	    	}
 	    }
 }
