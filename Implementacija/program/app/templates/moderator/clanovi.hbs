@@ -11,19 +11,19 @@
       <div class="col-md-6 col-sm-8 col-xs-12">
          <h3>Dodaj novog člana</h3>
       
-         <form method="POST" action="http://localhost:8080/moderator/clanovi/dodaj">
-          <select name="korisnicko-ime" class="form-control" class="select-korisnicko-ime"></select>
+         <div>
+            <select name="korisnicko-ime" id="korisnicko-ime" class="form-control" class="select-korisnicko-ime"></select>
 
-            <input required type="text" name="broj_clanske_karte" class="form-control" placeholder="Broj clanske karte">
-            <input required type="date" name="datum_rodjenja" class="form-control" placeholder="Datum rodjenja">
-            <input required type="text" name="adresa" class="form-control" placeholder="Adresa">
-            <input required type="text" name="mjesto_stanovanja" class="form-control" placeholder="Mjesto stanovanja">
-            <input required type="text" name="broj_telefona" class="form-control" placeholder="Broj telefona">
-            <input required type="text" name="ustanova" class="form-control" placeholder="Ustanova">
-            <input required type="text" name="email" class="form-control" placeholder="Email">
+            <input required type="text" name="broj_clanske_karte" id="broj_clanske_karte" class="form-control" placeholder="Broj clanske karte">
+            <input required type="date" name="datum_rodjenja" id="datum_rodjenja" class="form-control" placeholder="Datum rodjenja">
+            <input required type="text" name="adresa" id="adresa" class="form-control" placeholder="Adresa">
+            <input required type="text" name="mjesto_stanovanja" id="mjesto_stanovanja" class="form-control" placeholder="Mjesto stanovanja">
+            <input required type="text" name="broj_telefona" id="broj_telefona" class="form-control" placeholder="Broj telefona">
+            <input required type="text" name="ustanova" id="ustanova" class="form-control" placeholder="Ustanova">
+            <input required type="text" name="email" id="email" class="form-control" placeholder="Email">
 
-            <input type="submit" name="dodaj-novog-clana" class="btn btn-success" value="Dodaj novog člana"> 
-         </form>
+            <button id="dodaj-novog-clana" class="btn btn-success">Dodaj novog člana</button> 
+         </div>
       </div>
 
       <div class="col-md-6 col-sm-4 hidden-xs"></div>

@@ -63,9 +63,9 @@
 }
 
 #slika {
-  width: 100vw;
+  width: 100%;
   height: 270px;
-  position: relative;
+  object-fit: cover;
   opacity: 0.7;
 }
 
@@ -464,7 +464,10 @@ a {
 
 #login {
   padding: 15-0px 0;
-  background-image: url(../assets/images/librarybg.jpg);
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.3), 
+      rgba(0, 0, 0, 0.5)
+    ) ,url(../assets/images/librarybg.jpg);
   background-repeat: no-repeat, no-repeat;
   background-size: cover;
   height: 100vh!important;
@@ -509,10 +512,10 @@ a {
 
 .log .form {
   border: 1px solid #fff;
-  width: 70%!important;
   height: auto!important;
   background-color: #fff;
-  padding: 50px;
+  width: 100%!important;
+  padding: 100px 50px;
   margin-top: 70px;
 }
 
