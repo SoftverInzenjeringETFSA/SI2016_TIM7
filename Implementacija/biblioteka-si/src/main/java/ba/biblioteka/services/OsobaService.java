@@ -20,8 +20,6 @@ import ba.biblioteka.services.izuzetak.ServiceException;
 @Service
 public class OsobaService {
 
- 
-	
     @Autowired
     public static OsobaRepository repository;
 	

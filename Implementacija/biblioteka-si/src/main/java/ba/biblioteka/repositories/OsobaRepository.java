@@ -35,10 +35,7 @@ public interface OsobaRepository extends CrudRepository<Osoba, Integer> {
 	public Osoba findByUsernameAndPassword(String korisnicko_ime, String sifra);
 	
 	
-	@Query("select o from Osoba o where korisnicko_ime=?")
+	@Query("select o from Osoba o where o.korisnicko_ime=?")
 	public Osoba findByKorisnickoIme(String korisnicko_ime);
-	
-	
-	
-	
+
 }

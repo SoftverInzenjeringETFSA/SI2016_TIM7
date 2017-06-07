@@ -7,24 +7,25 @@
   <div class="panel-section row">
     <div class="col-md-6 col-sm-8 col-xs-12">
       <h3>Dodaj novu osobu</h3>
-      
-      <form method="POST" action="http://localhost:8080/administracija/osoba/dodaj">
-        <input required type="text" name="korisnicko-ime" class="form-control" placeholder="Korisnicko ime">
-        <input required type="text" name="ime" class="form-control" placeholder="Ime">
-        <input required type="text" name="prezime" class="form-control" placeholder="Prezime">
-        <input required type="password" name="sifra" class="form-control" placeholder="Sifra">
 
+      <div>
+        <input required type="text" name="korisnicko-ime" id="korisnicko-ime" class="form-control" placeholder="Korisnicko ime">
+        <input required type="text" name="ime" id="ime" class="form-control" placeholder="Ime">
+        <input required type="text" name="prezime" id="prezime" class="form-control" placeholder="Prezime">
+        <input required type="password" name="sifra" id="sifra" class="form-control" placeholder="Sifra">
 
-         <select name="tip" class="form-control" class="select-tip">
+         <select name="tip" id="tip" class="form-control" class="select-tip">
             <option value="Clan">Clan</option>
             <option value="Administrator">Administrator</option>
             <option value="Moderator">Moderator</option>
          </select>
         
-        <input type="submit" name="dodaj-novu-osobu" class="btn btn-success" value="Dodaj novu osobu">
-      </form>
+        <button id="dodaj-novu-osobu" class="btn btn-success">Dodaj novu osobu</button>
+      </div>
+
     </div>
     <div class="col-md-6 col-sm-4 hidden-xs"></div>
   </div>
 
 </div>
+<script type="text/javascript" src="/assets/js/js-osoba.js"></script>

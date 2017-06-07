@@ -41,8 +41,6 @@ public class AdministracijaService {
 		this.adminRepository.addNewAdmin(idOsobe, sigurnosniId);
 	}
 	
-	
-	
 	public List<Moderator> findAllMods() {
 		return this.moderatorRepository.findAll();
 	}
@@ -65,8 +63,12 @@ public class AdministracijaService {
 	
 	public List<Osoba> findAllOsobe() {
 		return this.osobaRepository.findAll();
-		
 	}
+	
+	public Osoba findOsobaByUsername(String username){
+		return this.osobaRepository.findByKorisnickoIme(username);
+	}
+	
 	public void deleteMember(Integer id){
 		this.clanRepository.deleteMember(id);
 	}
@@ -80,6 +82,10 @@ public class AdministracijaService {
 							 String email,
 							 Integer korisnickoIme){
 		this.clanRepository.addNewMember(brojClanskeKarte, datumRodjenja, adresa, mjestoStanovanja, brojTelefona, ustanova, email, korisnickoIme);
+	}
+	
+	public ClanBiblioteke findMemberById(Integer id){
+		return this.clanRepository.findById(id);
 	}
 	
 	public ClanBiblioteke findById(Integer id){

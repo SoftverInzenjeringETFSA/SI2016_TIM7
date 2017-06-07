@@ -115,4 +115,9 @@ public class ModeratorController {
 		return ResponseEntity.status(HttpStatus.OK).body(literaturaService.updateLiteratura(literatura, id));
 		}
 	
+	@RequestMapping(value = "/clanovi/brisi", method = RequestMethod.POST)
+	public void deleteMember(@RequestParam("id") Integer id) {
+		this.administracijaService.deleteMember(id);
+	}
+	
 }
