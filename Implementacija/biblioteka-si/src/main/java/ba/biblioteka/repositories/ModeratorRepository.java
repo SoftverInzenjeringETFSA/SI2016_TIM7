@@ -8,6 +8,7 @@ import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
+import ba.biblioteka.models.ClanBiblioteke;
 import ba.biblioteka.models.Moderator;
 
 public interface ModeratorRepository extends Repository<Moderator, Integer> {
@@ -35,4 +36,7 @@ public interface ModeratorRepository extends Repository<Moderator, Integer> {
 						  @Param("adresa") String adresa, 
 						  @Param("grad") String grad, 
 						  @Param("email") String email);
+	
+	@Query(value="select * from moderator where id_osobe=?", nativeQuery = true)
+	public Moderator findModById(Integer id);
 }

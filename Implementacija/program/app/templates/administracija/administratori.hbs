@@ -8,12 +8,12 @@
    <div class="panel-section row">
       <div class="col-md-6 col-sm-8 col-xs-12">
          <h3>Dodaj novog administratora</h3>
-         <form method="POST" action="http://localhost:8080/administracija/administratori/dodaj">
-            <select name="korisnicko-ime" class="form-control" class="select-korisnicko-ime"></select>
+         <div>
+            <select name="korisnicko-ime" id="korisnicko-ime" class="form-control" class="select-korisnicko-ime"></select>
 
-            <input required type="text" name="sigurnosniId" class="form-control" placeholder="Sigurnosni id">
-            <input required type="submit" name="dodaj-novog-administratora" class="btn btn-success" value="Dodaj novog administratora"> 
-         </form>
+            <input required type="text" name="sigurnosniId" id="sigurnosniId" class="form-control" placeholder="Sigurnosni id">
+            <button id="dodaj-novog-administratora" class="btn btn-success">Dodaj novog administratora</button> 
+         </div>
       </div>
       <div class="col-md-6 col-sm-4 hidden-xs"></div>
    </div>

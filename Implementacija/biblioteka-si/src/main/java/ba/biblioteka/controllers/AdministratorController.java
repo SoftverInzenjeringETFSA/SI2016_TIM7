@@ -51,11 +51,24 @@ public class AdministratorController {
 	}
 	
 	@RequestMapping(value = "/administratori/dodaj", method = RequestMethod.POST)
-	public void addNewAdmin(@RequestParam("korisnicko-ime") Integer idOsobe, 
-			@RequestParam("sigurnosniId") Integer sigurnosniId) {
-		//TODO: Add more validation
-		if(idOsobe != null && sigurnosniId != null)
-			this.administracijaService.addNewAdmin(idOsobe, sigurnosniId);
+	@ResponseBody
+	public void addNewAdmin(@RequestParam("korisnicko_ime") Integer idOsobe, 
+			@RequestParam("sigurnosniId") Integer sigurnosniId,
+			HttpServletRequest request, 
+			HttpServletResponse response) {
+
+		if(idOsobe != null && sigurnosniId != null){
+			Administrator admin = this.administracijaService.findAdminById(idOsobe);
+			
+			if(admin == null){
+				this.administracijaService.addNewAdmin(idOsobe, sigurnosniId);
+				
+				response.setStatus(HttpServletResponse.SC_OK);
+				return;
+			}
+		}
+		
+		response.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
 	}
 	
 	@RequestMapping("/moderatori")
@@ -69,15 +82,27 @@ public class AdministratorController {
 	}
 	
 	@RequestMapping(value = "/moderatori/dodaj", method = RequestMethod.POST)
-	public void addNewMod(@RequestParam("korisnicko-ime") Integer idOsobe, 
+	@ResponseBody
+	public void addNewMod(@RequestParam("korisnicko_ime") Integer idOsobe, 
 						  @RequestParam("sigurnosniId") Integer sigurnosniId,
 						  @RequestParam("adresa") String adresa,
 						  @RequestParam("grad") String grad,
-						  @RequestParam("email") String email) {
+						  @RequestParam("email") String email,
+						  HttpServletRequest request, 
+						  HttpServletResponse response) {
 		
-		//TODO: Add more validation
-		if(idOsobe != null && sigurnosniId != null && adresa != null && grad != null && email != null)
-			this.administracijaService.addNewMod(idOsobe, sigurnosniId, adresa, grad, email);
+		if(idOsobe != null && sigurnosniId != null && adresa != null && grad != null && email != null){
+			Moderator moderator = this.administracijaService.findModById(idOsobe);
+			
+			if(moderator == null){
+				this.administracijaService.addNewMod(idOsobe, sigurnosniId, adresa, grad, email);
+				
+				response.setStatus(HttpServletResponse.SC_OK);
+				return;
+			}
+		}
+		
+		response.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
 	}
 	
 	@RequestMapping("/clanovi")

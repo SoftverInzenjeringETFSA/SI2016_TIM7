@@ -9,16 +9,16 @@
    <div class="panel-section row">
     <div class="col-md-6 col-sm-8 col-xs-12">
       <h3>Dodaj novog moderatora</h3>
-      <form method="POST" action="http://localhost:8080/administracija/moderatori/dodaj">
-            <select name="korisnicko-ime" class="form-control" class="select-korisnicko-ime"></select>
+      <div>
+            <select name="korisnicko-ime" id="korisnicko-ime" class="form-control" class="select-korisnicko-ime"></select>
             
-            <input required type="text" name="sigurnosniId" class="form-control" placeholder="Sigurnosni id">
-            <input required type="text" name="adresa" class="form-control" placeholder="Adresa">
-            <input required type="text" name="grad" class="form-control" placeholder="Grad">
-            <input required type="email" name="email" class="form-control" placeholder="Email">
+            <input required type="text" name="sigurnosniId" id="sigurnosniId" class="form-control" placeholder="Sigurnosni id">
+            <input required type="text" name="adresa" id="adresa" class="form-control" placeholder="Adresa">
+            <input required type="text" name="grad" id="grad" class="form-control" placeholder="Grad">
+            <input required type="email" name="email" id="email" class="form-control" placeholder="Email">
 
-            <input type="submit" name="dodaj-novog-moderatora" class="btn btn-success" value="Dodaj novog moderatora"> 
-         </form>
+            <button id="dodaj-novog-moderatora" class="btn btn-success">Dodaj novog moderatora</button>
+         </div>
     </div>
    </div>
 

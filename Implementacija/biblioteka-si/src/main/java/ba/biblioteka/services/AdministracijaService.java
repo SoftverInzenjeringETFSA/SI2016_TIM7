@@ -41,12 +41,20 @@ public class AdministracijaService {
 		this.adminRepository.addNewAdmin(idOsobe, sigurnosniId);
 	}
 	
+	public Administrator findAdminById(Integer idOsobe){
+		return this.adminRepository.findAdminById(idOsobe);
+	}
+	
 	public List<Moderator> findAllMods() {
 		return this.moderatorRepository.findAll();
 	}
 	
 	public void deleteMod(Integer id){
 		this.moderatorRepository.deleteMod(id);
+	}
+	
+	public Moderator findModById(Integer idOsobe){
+		return this.moderatorRepository.findModById(idOsobe);
 	}
 	
 	public void addNewMod(Integer korisnickoIme, Integer sigurnosniId, String adresa, String grad, String email){
