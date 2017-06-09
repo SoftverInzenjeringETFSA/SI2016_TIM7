@@ -47,4 +47,28 @@ $(document).ready(function () {
 	        element.closest('tr').fadeOut(400).delay(400).remove();
 	    });
 	});
+
+	$('#dodaj-novu-literaturu').on('click', function () {
+
+		$.post('http://localhost:8080/moderator/literatura/dodaj', { 
+			kategorija: $('#kategorija').val(),
+			autor_literature: $('#autor-literature').val(), 
+			naziv_literature: $('#naziv-literature').val(), 
+			izdavac: $('#izdavac').val(), 
+			godina_izdavanja: $('#godina-izdavanja').val(), 
+			broj_strana: $('#broj-strana').val(),
+			komentar: $('#komentar').val(),
+			mogucnost_preuzimanja: $('#mogucnost-preuzimanja').val(),
+			datum_unosa: $('#datum-unosa').val() })
+		.done(function () {
+			alert('Literatura uspješno dodana!');
+			location.reload();
+		})
+		.fail(function (xhr, textStatus, errorthrown) {
+			if(xhr.status == 406)
+				alert('Literatura sa istim nazivom već postoji!');
+			else
+				alert('Došlo je do greške, statusni kod greške: ' + xhr.status);
+		});
+	});
 });

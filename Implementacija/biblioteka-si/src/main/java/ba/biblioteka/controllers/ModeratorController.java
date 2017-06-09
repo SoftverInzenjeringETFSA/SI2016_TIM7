@@ -6,6 +6,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,11 +18,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import ba.biblioteka.models.ClanBiblioteke;
 import ba.biblioteka.models.Kategorija;
 import ba.biblioteka.models.Literatura;
+import ba.biblioteka.models.Moderator;
 import ba.biblioteka.services.AdministracijaService;
 import ba.biblioteka.services.UpravljanjeLiteraturomService;
 
@@ -44,11 +49,25 @@ public class ModeratorController {
 	}
 	
 	@RequestMapping(value = "/kategorije/dodaj", method = RequestMethod.POST)
-	public void addNewCategory(@RequestParam("naziv-kategorije") String nazivKategorije, 
+	@ResponseBody
+	public void addNewCategory(@RequestParam("naziv_kategorije") String nazivKategorije, 
 			@RequestParam("potkategorije") String potkategorije,
-			@RequestParam("opis-kategorije") String opis) {
+			@RequestParam("opis_kategorije") String opis,
+			HttpServletRequest request, 
+			HttpServletResponse response) {
 		
-		this.literaturaService.addNewCategory(nazivKategorije, potkategorije, opis);
+		if(nazivKategorije != null && potkategorije != null && opis != null){
+			Kategorija kategorija = this.literaturaService.findCategoryByName(nazivKategorije);
+			
+			if(kategorija == null){
+				this.literaturaService.addNewCategory(nazivKategorije, potkategorije, opis);
+				
+				response.setStatus(HttpServletResponse.SC_OK);
+				return;
+			}
+		}
+		
+		response.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
 	}
 	
 	@RequestMapping("/literatura")
@@ -57,19 +76,33 @@ public class ModeratorController {
 	}
 	
 	@RequestMapping(value = "/literatura/dodaj", method = RequestMethod.POST)
-	public void addNewLiterature(@RequestParam("autor-literature") String autor, 
-			@RequestParam("naziv-literature") String naziv,
+	@ResponseBody
+	public void addNewLiterature(@RequestParam("autor_literature") String autor, 
+			@RequestParam("naziv_literature") String naziv,
 			@RequestParam("izdavac") String izdavac,
-			@RequestParam("godina-izdavanja") Integer godina, 
-			@RequestParam("broj-strana") Integer brojStrana,
+			@RequestParam("godina_izdavanja") Integer godina, 
+			@RequestParam("broj_strana") Integer brojStrana,
 			@RequestParam("komentar") String komentar,
-			@RequestParam("mogucnost-preuzimanja") boolean mPreuzimanja,
-			@RequestParam("datum-unosa") String datumUnosa,
-			@RequestParam("kategorija") Integer kategorijaId) throws ParseException 
+			@RequestParam("mogucnost_preuzimanja") boolean mPreuzimanja,
+			@RequestParam("datum_unosa") String datumUnosa,
+			@RequestParam("kategorija") Integer kategorijaId,
+			HttpServletRequest request, 
+			HttpServletResponse response) throws ParseException 
 	{
+
+		if(autor != null && naziv != null && izdavac != null && godina != null && brojStrana != null && komentar != null && datumUnosa != null && kategorijaId != null){
+			Literatura literatura = this.literaturaService.findLiteratureByName(naziv);
+			
+			if(literatura == null){
+				DateFormat df = new SimpleDateFormat("YYYY-MM-DD");
+				this.literaturaService.addNewLiterature(autor, naziv, izdavac, godina, brojStrana, komentar, mPreuzimanja, df.parse(datumUnosa), kategorijaId);
+				
+				response.setStatus(HttpServletResponse.SC_OK);
+				return;
+			}
+		}
 		
-		DateFormat df = new SimpleDateFormat("YYYY-MM-DD");
-		this.literaturaService.addNewLiterature(autor, naziv, izdavac, godina, brojStrana, komentar, mPreuzimanja, df.parse(datumUnosa), kategorijaId);
+		response.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
 	}
 	
 	/*

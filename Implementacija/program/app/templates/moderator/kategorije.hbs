@@ -10,13 +10,13 @@
       <div class="col-md-6 col-sm-8 col-xs-12">
          <h3>Dodaj novu kategoriju</h3>
       
-         <form method="POST" action="http://localhost:8080/moderator/kategorije/dodaj">
-            <input required type="text" name="naziv-kategorije" class="form-control" placeholder="Naziv kategorije">
-            <input required type="text" name="potkategorije" class="form-control" placeholder="Potkategorije">
-            <textarea required name="opis-kategorije" class="form-control" placeholder="Opis kategorije"></textarea>
+         <div>
+            <input required type="text" name="naziv-kategorije" id="naziv-kategorije" class="form-control" placeholder="Naziv kategorije">
+            <input required type="text" name="potkategorije" id="potkategorije" class="form-control" placeholder="Potkategorije">
+            <textarea required name="opis-kategorije" id="opis-kategorije" class="form-control" placeholder="Opis kategorije"></textarea>
 
-            <input type="submit" name="dodaj-novu-kategoriju" class="btn btn-success" value="Dodaj novu kategoriju"> 
-         </form>
+            <button id="dodaj-novu-kategoriju" class="btn btn-success">Dodaj novu kategoriju</button> 
+         </div>
       </div>
 
       <div class="col-md-6 col-sm-4 hidden-xs"></div>

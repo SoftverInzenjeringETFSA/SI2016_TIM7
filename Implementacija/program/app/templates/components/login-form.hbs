@@ -11,15 +11,15 @@
         <div class="form center-block">
         <i class="fa fa-user" aria-hidden="true"></i>
                 <div class="login-input">
-                    {{input placeholder="korisnicko_ime" value=model.korisnicko_ime}}
+                    {{input placeholder="Korisničko ime" value=model.korisnicko_ime}}
                     <br><br>
-                    {{input type="password" placeholder="sifra" value=model.sifra}}
+                    {{input type="password" placeholder="Šifra" id='pwInput' value=model.sifra}}
                 </div>
 
                 <br><br>
 
                 <div class="login-input">
-                    <button type="button" class="btn btn-info" disabled={{ isToSAccepted }} {{action "login"}}>PRIJAVA</button>
+                    <button type="button" id="login-btn" class="btn btn-info" disabled={{ isToSAccepted }} {{action "login"}}>PRIJAVA</button>
                     <h4 style="color:red">{{errorMessage}}</h4>
                 </div>
         </div>
@@ -28,3 +28,11 @@
        </div> 
     </div>
 </div>
+<script>
+$(document).ready(function () {
+    $('#pwInput').on('keyup', function (e) {
+       if(e.which == 13) 
+        $('#login-btn').click();
+    });
+});
+</script>

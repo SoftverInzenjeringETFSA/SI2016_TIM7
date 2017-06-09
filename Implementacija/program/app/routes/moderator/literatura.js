@@ -17,3 +17,4 @@ export default Ember.Route.extend({
 		return this.get('ajax').request('http://localhost:8080/moderator/literatura', { method: 'GET' });
 	}
 });
+

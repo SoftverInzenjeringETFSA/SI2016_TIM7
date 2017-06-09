@@ -1,4 +1,4 @@
-<nav class="navbar nav-bottom navbar-default navbar-static-top" style="background: #1d212b;">
+<nav class="navbar nav-bottom navbar-default navbar-static-top">
   <div class="container">
     <div class="navbar-header">
       <!-- Collapsed Hamburger -->
@@ -10,13 +10,15 @@
       </button>
     </div>
     <div class="collapse navbar-collapse" id="app-navbar-collapse">
-      <!-- Left Side Of Navbar -->
+
       <ul class="nav navbar-nav">
         <li><a href="/clan">Početna</a></li>
         <li><a href="/clan/faq">FAQ</a></li>
-        <li> {{#link-to 'logout' }} Odjava {{/link-to}}</li>
       </ul>
       
+      <ul class="nav navbar-nav navbar-right">
+        <li> {{#link-to 'logout' }} Odjava {{/link-to}}</li>
+      </ul>
     </div>
   </div>
 </nav>

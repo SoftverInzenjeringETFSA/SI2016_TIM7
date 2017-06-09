@@ -8,21 +8,21 @@
 	<div class="panel-section row">
       <div class="col-md-6 col-sm-8 col-xs-12">
          <h3>Dodaj novu literaturu</h3>
-      
-         <form method="POST" action="http://localhost:8080/moderator/literatura/dodaj">
-            <select name="kategorija" class="form-control" class="select-kategorija"></select>
+      	
+      	<div>
+            <select name="kategorija" id="kategorija" class="form-control" class="select-kategorija"></select>
             
-            <input required type="text" name="autor-literature" class="form-control" placeholder="Autor">
-            <input required type="text" name="naziv-literature" class="form-control" placeholder="Naziv">
-            <input required type="text" name="izdavac" class="form-control" placeholder="Izdavac">
-            <input required type="text" name="godina-izdavanja" class="form-control" placeholder="Godina izdavanja">
-            <input required type="number" name="broj-strana" class="form-control" placeholder="Broj strana">
-            <input required type="text" name="komentar" class="form-control" placeholder="Komentar">
-            <input required type="text" name="mogucnost-preuzimanja" class="form-control" value="0">
-            <input required type="date" name="datum-unosa" class="form-control" placeholder="Datum unosa">
+            <input required type="text" name="autor-literature" id="autor-literature" class="form-control" placeholder="Autor">
+            <input required type="text" name="naziv-literature" id="naziv-literature" class="form-control" placeholder="Naziv">
+            <input required type="text" name="izdavac" id="izdavac" class="form-control" placeholder="Izdavac">
+            <input required type="number" name="godina-izdavanja" id="godina-izdavanja" class="form-control" placeholder="Godina izdavanja">
+            <input required type="number" name="broj-strana" id="broj-strana" class="form-control" placeholder="Broj strana">
+            <input required type="text" name="komentar" id="komentar" class="form-control" placeholder="Komentar">
+            <input required type="text" name="mogucnost-preuzimanja" id="mogucnost-preuzimanja" class="form-control" value="0">
+            <input required type="date" name="datum-unosa" id="datum-unosa" class="form-control" placeholder="Datum unosa">
 
-            <input type="submit" name="dodaj-novu-literaturu" class="btn btn-success" value="Dodaj novu literaturu"> 
-         </form>
+            <button id="dodaj-novu-literaturu" class="btn btn-success">Dodaj novu literaturu</button> 
+         </div>
       </div>
       <div class="col-md-6 col-sm-4 hidden-xs"></div>
    </div>
@@ -79,4 +79,3 @@
 </div>
 
 <script type="text/javascript" src="/assets/js/js-literatura.js"></script>
-<script type="text/javascript" src="/assets/js/edit-msg.js"></script>

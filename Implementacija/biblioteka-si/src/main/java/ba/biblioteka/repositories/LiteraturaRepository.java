@@ -52,6 +52,9 @@ public interface LiteraturaRepository extends PagingAndSortingRepository<Literat
 	
 	@Query("select l from Literatura l where naziv_literature=?")
 	public ArrayList<Literatura> findByNaziv_literature(String id);
+	
+	@Query("select l from Literatura l where l.naziv_literature=?")
+	public Literatura findByName(String nazivLiterature);
 
 }
 

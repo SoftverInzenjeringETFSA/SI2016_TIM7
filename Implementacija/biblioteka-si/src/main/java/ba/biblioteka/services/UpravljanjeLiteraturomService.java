@@ -44,6 +44,14 @@ public class UpravljanjeLiteraturomService {
 		return literaturaRepository.findAll();
 	}
 	
+	public Literatura findLiteratureByName(String nazivLiterature){
+		return literaturaRepository.findByName(nazivLiterature);
+	}
+	
+	public Kategorija findCategoryByName(String nazivKategorije){
+		return kategorijaRepository.findByName(nazivKategorije);
+	}
+	
 	public void addNewLiterature(String autor, 
 								String naziv,
 								String izdavac,

@@ -1,5 +1,5 @@
 
-<nav class="navbar nav-bottom navbar-default navbar-static-top" style="background: #1d212b;">
+<nav class="navbar nav-bottom navbar-default navbar-static-top">
   <div class="container">
     <div class="navbar-header">
       <!-- Collapsed Hamburger -->
@@ -14,13 +14,15 @@
       <!-- Left Side Of Navbar -->
       <ul class="nav navbar-nav">
         <li><a href="/moderator">Početna</a></li>
-        <li><a href="/moderator/osoba">Nova osoba</a></li>
-        <li><a href="/moderator/clanovi">Članovi</a></li>
-        <li><a href="/moderator/kategorije">Kategorije</a></li>
         <li><a href="/moderator/literatura">Literatura</a></li> 
-        <li> {{#link-to 'logout' }} Odjava {{/link-to}}</li>
+        <li><a href="/moderator/kategorije">Kategorije</a></li>
+        <li><a href="/moderator/clanovi">Članovi</a></li>
+        <li><a href="/moderator/osoba">Nova osoba</a></li>
       </ul>
       
+      <ul class="nav navbar-nav navbar-right">
+        <li> {{#link-to 'logout' }} Odjava {{/link-to}}</li>
+      </ul>
     </div>
   </div>
 </nav>

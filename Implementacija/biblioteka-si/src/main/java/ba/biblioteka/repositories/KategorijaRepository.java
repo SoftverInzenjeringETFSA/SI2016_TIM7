@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import ba.biblioteka.models.Kategorija;
+import ba.biblioteka.models.Literatura;
 
 public interface KategorijaRepository extends Repository<Kategorija, Integer> {
 	long count();
@@ -24,4 +25,7 @@ public interface KategorijaRepository extends Repository<Kategorija, Integer> {
 	@Modifying
 	@Query(value="insert into kategorija (naziv_kategorije, potkategorija, opis) values (:nazivKategorije, :potkategorije, :opis)", nativeQuery = true)
 	public void addNewCategory(@Param("nazivKategorije") String nazivKategorije, @Param("potkategorije") String potkategorije, @Param("opis") String opis);
+	
+	@Query("select k from Kategorija k where k.naziv_kategorije=?")
+	public Kategorija findByName(String nazivKategorije);
 }
