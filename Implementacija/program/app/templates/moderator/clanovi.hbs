@@ -16,12 +16,20 @@
 
             <input required type="text" name="broj_clanske_karte" id="broj_clanske_karte" class="form-control" placeholder="Broj clanske karte">
             <input required type="date" name="datum_rodjenja" id="datum_rodjenja" class="form-control" placeholder="Datum rodjenja">
+
             <input required type="text" name="adresa" id="adresa" class="form-control" placeholder="Adresa">
+            <label type="text" name="error" id="aerror" style="display: none; color:red;"> Adresa mora da sadrži više od 2 karaktera. </label>
+            
             <input required type="text" name="mjesto_stanovanja" id="mjesto_stanovanja" class="form-control" placeholder="Mjesto stanovanja">
+            
             <input required type="text" name="broj_telefona" id="broj_telefona" class="form-control" placeholder="Broj telefona">
+            <label type="text" name="error" id="nerror" style="display: none; color:red;"> Neispravan format broja telefona. </label>
+
             <input required type="text" name="ustanova" id="ustanova" class="form-control" placeholder="Ustanova">
             <input required type="text" name="email" id="email" class="form-control" placeholder="Email">
+            <label type="text" name="error" id="eerror" style="display: none; color:red;"> Neispravan format e-mail adrese. </label><br>
 
+            <label type="text" name="error" id="inputerror" style="display: none; color:red;"> Niste popunili sva polja. </label><br>
             <button id="dodaj-novog-clana" class="btn btn-success">Dodaj novog člana</button> 
          </div>
       </div>

@@ -7,22 +7,21 @@
   <div class="panel-section row">
     <div class="col-md-6 col-sm-8 col-xs-12">
       <h3>Dodaj novu osobu</h3>
-
       <div>
         <input required type="text" name="korisnicko-ime" id="korisnicko-ime" class="form-control" placeholder="Korisnicko ime">
         <input required type="text" name="ime" id="ime" class="form-control" placeholder="Ime">
         <input required type="text" name="prezime" id="prezime" class="form-control" placeholder="Prezime">
         <input required type="password" name="sifra" id="sifra" class="form-control" placeholder="Sifra">
-
-         <select name="tip" id="tip" class="form-control" class="select-tip">
-            <option value="Clan">Clan</option>
-            <option value="Administrator">Administrator</option>
-            <option value="Moderator">Moderator</option>
-         </select>
-        
+        <label type="text" name="error" id="perror" style="display: none; color:red;"> Šifra treba da ima najmanje 8 karaktera. </label>
+        <select name="tip" id="tip" class="form-control" class="select-tip">
+          <option value="Clan">Clan</option>
+          <option value="Administrator">Administrator</option>
+          <option value="Moderator">Moderator</option>
+        </select>
+        <br>
+        <label type="text" name="error" id="inputerror" style="display: none; color:red;"> Unese vrijednosti nisu ispravne dužine. </label>
         <button id="dodaj-novu-osobu" class="btn btn-success">Dodaj novu osobu</button>
       </div>
-
     </div>
     <div class="col-md-6 col-sm-4 hidden-xs"></div>
   </div>

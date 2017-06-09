@@ -13,10 +13,15 @@
             <select name="korisnicko-ime" id="korisnicko-ime" class="form-control" class="select-korisnicko-ime"></select>
             
             <input required type="text" name="sigurnosniId" id="sigurnosniId" class="form-control" placeholder="Sigurnosni id">
+            <label type="text" name="error" id="nerror" style="display: none; color:red;"> Neispravan format sigurnosnog broja. </label>
+
             <input required type="text" name="adresa" id="adresa" class="form-control" placeholder="Adresa">
             <input required type="text" name="grad" id="grad" class="form-control" placeholder="Grad">
-            <input required type="email" name="email" id="email" class="form-control" placeholder="Email">
 
+            <input required type="email" name="email" id="email" class="form-control" placeholder="Email">
+            <label type="text" name="error" id="eerror" style="display: none; color:red;"> Neispravan format e-mail adrese. </label><br>
+
+            <label type="text" name="error" id="inputerror" style="display: none; color:red;"> Niste popunili sva polja. </label><br>
             <button id="dodaj-novog-moderatora" class="btn btn-success">Dodaj novog moderatora</button>
          </div>
     </div>
