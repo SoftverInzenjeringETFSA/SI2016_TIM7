@@ -11,14 +11,14 @@ $(document).ready(function () {
 	$('#dodaj-novog-clana').on('click', function () {
 
 		$.post('http://localhost:8080/administracija/clanovi/dodaj', { 
+			korisnicko_ime: $('#korisnicko-ime').val(),
 			broj_clanske_karte: $('#broj_clanske_karte').val(), 
 			datum_rodjenja: $('#datum_rodjenja').val(), 
 			adresa: $('#adresa').val(),
 			mjesto_stanovanja: $('#mjesto_stanovanja').val(), 
 			broj_telefona: $('#broj_telefona').val(), 
 			ustanova: $('#ustanova').val(), 
-			email: $('#email').val(), 
-			korisnicko_ime: $('#korisnicko-ime').val() })
+			email: $('#email').val() })
 		.done(function () {
 			alert('Novi član uspješno dodan!');
 			location.reload();

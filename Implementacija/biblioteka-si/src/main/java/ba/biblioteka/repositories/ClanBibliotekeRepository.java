@@ -45,7 +45,7 @@ public interface ClanBibliotekeRepository extends Repository<ClanBiblioteke, Int
 							 @Param("id_osobe") Integer id_osobe);
 	
 	
-	@Query(value="select * from ClanBiblioteke where id_osobe=?", nativeQuery = true)
+	@Query(value="select * from clanbiblioteke where id_osobe=?", nativeQuery = true)
 	public ClanBiblioteke findById(Integer id);
 	
 }
