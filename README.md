@@ -1,5 +1,5 @@
 # SI2016_TIM7
 
-##Tema: Bibliotečni arhiv
+## Tema: Bibliotečni arhiv
 
-###Naš projekat možete pogledati na linku: http://program.surge.sh
+### Naš projekat možete pogledati na linku: http://program.surge.sh
